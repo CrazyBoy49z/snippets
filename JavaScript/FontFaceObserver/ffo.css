@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'LatoLightWeb';
+    src: url('/client/fonts/lato-light.woff2') format('woff2'), url('/client/fonts/lato-light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoMediumWeb';
+    src: url('/client/fonts/lato-medium.woff2') format('woff2'), url('/client/fonts/lato-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LoraWeb';
+    src: url('/client/fonts/lora-regular.woff2') format('woff2'), url('/client/fonts/lora-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;
+    font-weight: 400;
+}
+
+
+@media screen and (min-width:360px) {
+    
+     .fl {
+        font-family: LatoLightWeb, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif !important;
+        font-weight: 300 !important;
+    }
+    
+    .fl #navtoggle {
+        font-family: LatoLightWeb, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif !important;
+    }
+    .main h2 {
+        letter-spacing: 1px;
+    }
+    .fl h2 {
+        font-family: LoraWeb, Georgia, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;
+        letter-spacing: 0;
+    }
+    .fl h3 {
+        font-family: LatoMediumWeb, Georgia, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;
+        letter-spacing: 0;
+        font-weight: 500;
+    }
+    .fl h4, .fl #h4 {
+        font-family: LatoMediumWeb, Georgia, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;
+        letter-spacing: 0;
+        font-weight: 500;
+    }
+    .fl h4 span {
+        font-family: LatoLightWeb, Georgia, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;
+        font-weight: 300;
+    }
+}
