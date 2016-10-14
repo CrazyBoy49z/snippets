@@ -1,0 +1,44 @@
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"SportsOrganization",
+    "name":"Junkers Paddelgemeinschaft Dessau e.V.",
+	"location": {
+      "@type": "Place",
+      "address":{
+          "@type":"PostalAddress",
+          "addressLocality":"Dessau-Roßlau",
+          "postalCode":"06846",
+          "streetAddress":"Leopoldshafen 4"
+      },
+      "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "51.8564",
+          "longitude": "12.2212"
+      },    
+      "description": "Bootshaus der Junkers-Paddelgemeinschaft",
+      "image": "https://junkers-paddelgemeinschaft.de/assets/images/34/120430-junkers-bootshaus-0007-3.2.jpg",
+      "sameAs": ["https://de.wikipedia.org/wiki/Bootshaus_im_Leopoldshafen_(Dessau)", "https://www.youtube.com/channel/UCL_MYNLKkMIZPhMkCwOnk-Q"]    
+    },
+    "memberOf": {
+        "@type":"SportsOrganization",
+        "name": "Deutscher Kanu-Verband",
+        "url": "http://www.kanu.de/"
+    },
+    "memberOf": {
+        "@type":"SportsOrganization",
+        "name": "Landes-Kanu-Verband Sachsen-Anhalt",
+        "url": "http://www.kanu-sachsen-anhalt.de/"
+    },
+    "member": {
+        "@type":"Person",
+        "name": "Uwe Hammer",
+        "jobTitle": "1. Vorsitzender"
+    },
+    "sport":"paddling",
+    "foundingDate":"1930-09-15",
+    "logo": "https://junkers-paddelgemeinschaft.de/client/grafik/logo.png",
+    "url": "https://junkers-paddelgemeinschaft.de/",
+    "description": "Der größte Paddelverein Dessaus mit den aktivsten Wanderfahrern in Sachsen-Anhalt."
+}
+</script>
