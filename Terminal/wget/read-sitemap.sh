@@ -1,0 +1,1 @@
+wget --quiet https://your-domain.tld/sitemap --output-document - | egrep -o "https://your-domain\.tld[^<]+" | wget --spider -i - --wait 1
