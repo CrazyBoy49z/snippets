@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<title>Webfont versus Systemfont</title><meta charset="utf-8"><link href="https://fonts.gstatic.com/" rel="preconnect"><link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+<style>
+
+
+#system {
+	
+	/* Mit diesen Parametern kansst du experimentieren */
+	
+	
+	font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma",sans-serif; 
+	/* Schrift am besten hier font-size: 2.1em vorauswählen, anklicken und den font-family-Code reinkopieren. Zur Sicherheit solltest du Schriften mit 2 oder 3 Wörtern im Namen in Anführungszeichen setzen (wie im Beispiel */
+	
+font-family: Georgia;
+
+	font-size: 44px;
+	
+	
+	/* Ende der Spielwiese */
+
+	
+	font-weight: 400;
+	color: blue;
+    letter-spacing: 1px;
+	line-height: 1.25;
+}
+
+
+body {}
+
+
+
+
+#webfont {
+	font-size: 44px;
+	font-family: 'Lora', "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;	
+	font-weight: 300;
+	position: absolute;
+	top: 0;
+	color: red;
+    line-height:1.25em;
+}
+
+
+
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<p id="webfont">Die heiße Zypernsonne quälte Max und Victoria ja böse auf dem Weg bis zur Küste.<br>„Falsches Üben von Xylophonmusik quält jeden größeren Zwerg.“<br>Asynchrone Bassklänge vom Jazzquintett sind nix für spießige Löwen.<br> 0123456789 ?!;,:_-–/ ABCD EFGH IJKL MNOP QRST UVW XYZ ÄÖÜ<br>abcd efgh ijkl mnop rst uvw xyz äöü §$€ @ áàóòéè</p>
+
+<p id="system">Die heiße Zypernsonne quälte Max und Victoria ja böse auf dem Weg bis zur Küste.<br> „Falsches Üben von Xylophonmusik quält jeden größeren Zwerg.“<br>Asynchrone Bassklänge vom Jazzquintett sind nix für spießige Löwen.<br> 0123456789 ?!;,:_-–/ ABCD EFGH IJKL MNOP QRST UVW XYZ ÄÖÜ<br>abcd efgh ijkl mnop rst uvw xyz äöü §$€ @ áàóòéè</p>
+
+
+
+
+</body></html>

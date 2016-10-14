@@ -4,3 +4,19 @@
 * Zusätzlich wird das Skript nur beim ersten Aufruf geladen, dafür die PHP-Dateien anpassen (sind als Snippets für MODx Evo angelegt, lassen sich aber einfach anpassen.)
     
 
+## Verwendung
+
+Einbindung in MODx-Template
+
+`<!DOCTYPE html>[!albisClass!][!fontsloaded!]<html>
+<head></head>
+<body>
+</body>
+[!fontsload.js!]
+</html>`
+
+Pfade in ffo.css, ffo.js fontsloads.js.php anpassen.
+
+Hinweis: Maximal 3 Fonts verwenden und hier <http://www.fontsquirrel.com/fontface/generator> verkleinern.
+
+Rückfall-Fonts möglichst mit Hiilfe von fontsCompare.html passend auswählen.
