@@ -1,35 +1,50 @@
+# ANMERKUNG: ## Zeilen mit zwei Rauten sind Kommentare, solche mit einer # abgeschaltete Anweisungen. ### Drei Rauten markieren den Beginn thematischer Abschnitte
+# Einführung in das Thema .htaccess: https://perishablepress.com/stupid-htaccess-tricks/
+
+### Sicherheitseinstellungen
+
 <IfModule mod_headers.c>
+    ## verhindert das Untermogeln faslcher MIME-Typen, etwa das Tarnen von JavaScipt als Bilddateien: http://www.golem.de/news/cross-site-scripting-javascript-code-in-bilder-einbetten-1411-110264-2.html
     Header set X-Content-Type-Options nosniff
-    Header set X-XSS-Protection "1; mode=block" 
+    ## Verhindert einige Cross-Site-Scripting-Attacken: https://de.wikipedia.org/wiki/Cross-Site-Scripting
+    Header set X-XSS-Protection "1; mode=block"
+    ## Unterbindet den Diebstahl der Site, indem deren Inhalt über Frames in andere Seiten eingebunden wird.
     Header set X-Frame-Options SAMEORIGIN
-    #Content-Security-Policy: default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'
-    # Header set Content-Security-Policy "default-src 'self'; img-src 'self' http: https: *.gravatar.com;"
-    #Header set Content-Security-Policy-Report-Only default-src 'junkers-paddelgemeinschaft.de'
-    # Header set Content-Security-Policy: default-src 'none'; script-src junkers-paddelgemeinschaft.de
-    #Access-Control-Allow-Origin: https://www.youtube-nocookie.com
-    #Header set Content-Security-Policy-Report-Only "default-src https://junkers-paddelgemeinschaft.de googleads.g.doubleclick.net; img-src  https://junkers-paddelgemeinschaft.de google.com www.googleapis.com a.tile.openstreetmap.org b.tile.openstreetmap.org c.tile.openstreetmap.org googleads.g.doubleclick.net/pagead/id; frame-src www.youtube-nocookie.com; style-src https://junkers-paddelgemeinschaft.de google.com cse.google.com www.google.com  'unsafe-inline'; script-src https://junkers-paddelgemeinschaft.de 'unsafe-inline' doubleclick.net ytimg.js www.google.com cse.google.com child-src https://www.youtube-nocookie.com/"
-    # Header unset X-Powered-By
-    # Header unset SERVER
+    ## Entfernt den Header, aud dem sich die verwendete PHP Version auslesen lässt
+    Header unset X-Powered-By
+    ## Unterdrückt die Übertragung von Details über den Server
+    Header unset SERVER
+    ## mit Content-Securtiy-Policy kann definiert werden, aus welchen Quellen der zum Browser übertragen Code stammen darf. Die Sache ist gut, aber nicht ganz trivial, Erläuterungen siehe https://www.html5rocks.com/en/tutorials/security/content-security-policy/ und https://developer.mozilla.org/en-US/docs/Web/Security/CSP
+    # Content-Security-Policy: 
 </IfModule>
 
+## Unterdrückt Informationen über den Server: https://httpd.apache.org/docs/2.2/de/mod/core.html#serversignature
 ServerSignature Off
 
-<IfModule mod_autoindex.c>
-    Options -Indexes
-</IfModule>
+## Schützt die .htaccess
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
 
-<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
-    Order allow,deny
-    Deny from all
-    Satisfy All
-</FilesMatch>
+## Beispiel: Zugriff auf sicherheitsrelevante Dateien unterbinden wie meine-datei.bak oder meine-datei.config. Nur das passende auswählen.
+#<FilesMatch "(\.(bak|config|sql|fla|ini|log|sh|inc|swp|dist)|~)$">
+#    Order allow,deny
+#    Deny from all
+#    Satisfy All
+#</FilesMatch>
 
-# Sicherheitseinstellung: erst auf dem Server anpasssen!
+## Unterbindet das Auflisten der Serverdateien im Browser
+Options -Indexes
+IndexIgnore *
+
+## Beschränkt die Größe der hochladbaren Dateien und erschwert so einen Weg von DoS-Attacken. Angabe in Bits. 
 # LimitRequestBody 10240000
+## Erst für die produktive Site freigeben. Pfad ermitteln mit PHP-Datei im root der Site mit folgendem Inhalt: <?php echo $_SERVER["DOCUMENT_ROOT"] ?> Datei anschließend löschen!
 # php_value open_basedir /www/htdocs/pfad-zur-installation
 
-
-
+## Veraltet! Ab PHP 5.4 überflüssig. Aber wer fährt schon auf älteren Systemen?
 # php_flag magic_quotes_gpc off
 # php_value date.timezone Europe/Berlin
 
