@@ -44,13 +44,21 @@ IndexIgnore *
 ## Erst für die produktive Site freigeben. Pfad ermitteln mit PHP-Datei im root der Site mit folgendem Inhalt: <?php echo $_SERVER["DOCUMENT_ROOT"] ?> Datei anschließend löschen!
 # php_value open_basedir /www/htdocs/pfad-zur-installation
 
+### Server-Einstellungen
+
 ## Veraltet! Ab PHP 5.4 überflüssig. Aber wer fährt schon auf älteren Systemen?
 # php_flag magic_quotes_gpc off
+## Veraltet
 # php_value date.timezone Europe/Berlin
 
+## Hauptsprache festlegen
 DefaultLanguage de-DE
+## Zeichensatz definieren
 AddDefaultCharset UTF-8
+## Zeitzone bestimmen
 SetEnv TZ Europe/Berlin
+
+#### ! Vorläufiges Ende der überabreiten Einstellungen
 
 
 #Options +FollowSymlinks
