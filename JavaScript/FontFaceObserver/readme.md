@@ -8,15 +8,15 @@
 
 Einbindung in MODx-Template
 
-`<!DOCTYPE html>[!albisClass!][!fontsloaded!]<html>
-<head></head>
-<body>
-</body>
-[!fontsload.js!]
-</html>`
+    <!DOCTYPE html>[!albisClass!][!fontsloaded!]<html>
+    <head></head>
+    <body>
+    </body>
+    [!fontsload.js!] 
+    </html>
 
-Pfade in ffo.css, ffo.js fontsloads.js.php anpassen.
+**Achtung!** Pfade in <a href="/JavaScript/FontFaceObserver/ffo.css">ffo.css</a>, <a href="/JavaScript/FontFaceObserver/ffo.js">ffo.js</a> <a href="/JavaScript/FontFaceObserver/fontsload.js.php">fontsloads.js.php</a> anpassen.
 
 Hinweis: Maximal 3 Fonts verwenden und hier <http://www.fontsquirrel.com/fontface/generator> verkleinern.
 
-Rückfall-Fonts möglichst mit Hilfe von <a href="/JavaScript/FontFaceObserver/fontsCompare.html">fontsCompare.html</a>passend auswählen.
+Rückfall-Fonts möglichst mit Hilfe von <a href="/JavaScript/FontFaceObserver/fontsCompare.html">fontsCompare.html</a> passend auswählen.
