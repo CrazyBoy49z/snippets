@@ -1,4 +1,4 @@
-update modx_site_content set
+`update modx_site_content set
   description=replace(description, 'Ã¼', 'ü'),
   description=replace(description, 'Ã¤', 'ä'),
   description=replace(description, 'Ã¶', 'ö'),
@@ -1213,4 +1213,4 @@ update modx_system_settings set
   setting_value=replace(setting_value, 'â‚¬', '€'),
   setting_value=replace(setting_value, 'â€œ', '"'),
   setting_value=replace(setting_value, 'â€ž', '"'),
-  setting_value=replace(setting_value, 'â€', '"');
+  setting_value=replace(setting_value, 'â€', '"');`
