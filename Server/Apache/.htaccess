@@ -120,13 +120,13 @@ IndexIgnore *
 ### Server-Einstellungen
 
 ## Erst für die produktive Site freigeben. Pfad ermitteln mit PHP-Datei im root der Site mit folgendem Inhalt: <?php echo $_SERVER["DOCUMENT_ROOT"] ?> Datei anschließend löschen!
-php_value open_basedir /www/htdocs/w00f2f21/web/modx11/
+#php_value open_basedir /mein/pfad/…
 
-## Nur frreischalten, wenn keine weiteren .htaccess-Dateien in Unterverzeichnissen stecken
+## Nur freischalten, wenn keine weiteren .htaccess-Dateien in Unterverzeichnissen stecken
 #AllowOverride None
 
 ## Beschränkt die Größe der hochladbaren Dateien und erschwert so einen Weg von DoS-Attacken. Angabe in Bits. 
-LimitRequestBody 10240000
+#LimitRequestBody 10240000
 
 ### Server-Einstellungen
 
