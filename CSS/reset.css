@@ -1,0 +1,12 @@
+
+/* auf dem Bildschirm verbergen */
+
+.vs {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: inset(50%);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
