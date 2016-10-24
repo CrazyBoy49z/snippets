@@ -102,13 +102,6 @@ input, textarea {
 }
 
 
-
-
-/* ------ */
-
-
-/* MEDIEN */
-
 img, audio, video {
     border-style: none;
     vertical-align: middle;
@@ -119,12 +112,9 @@ svg:not(:root) {
 }
 
 
-/* ------ */
-
-
 /* SONSTIGES */
 
-[hidden] {
+[hidden], .hidden {
     display: none;
 }
 
