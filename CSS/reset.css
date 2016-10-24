@@ -112,17 +112,9 @@ svg:not(:root) {
 }
 
 
-/* SONSTIGES */
-
 [hidden], .hidden {
     display: none;
 }
-
-
-/* ------ */
-
-
-/* HELFER */
 
 .vs {
     position: absolute;
@@ -135,15 +127,6 @@ svg:not(:root) {
     border: 0;
 }
 
-.vs.focus:active, .vs.focus:focus {
-    /* CSS2 */
-    position: static;
-    overflow: visible;
-    clip: auto;
-    margin: 0;
-    width: auto;
-    height: auto;
-}
 
 .aus {
     display: none;
@@ -241,4 +224,13 @@ label {
 
 input:invalid, textarea:invalid {
     background-color: #f0dddd;
+}
+
+.vs.focus:active, .vs.focus:focus {
+    position: static;
+    overflow: visible;
+    clip: auto;
+    margin: 0;
+    width: auto;
+    height: auto;
 }
