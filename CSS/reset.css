@@ -26,9 +26,6 @@ table {
     border-collapse: collapse;
 }
 
-
-/* FORMULARE */
-
 legend {
     display: table;
     box-sizing: border-box;
@@ -53,9 +50,9 @@ button, select {
     text-transform: none;
 }
 
-
 button, [type="button"], [type="reset"], [type="submit"] {
     cursor: pointer;
+    -moz-appearance: button;
     -webkit-appearance: button;
 }
 
