@@ -87,7 +87,6 @@ button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-mo
     border: 0;
 }
 
-
 textarea {
     overflow: auto;
     vertical-align: top;
@@ -144,11 +143,6 @@ svg:not(:root) {
 }
 
 
-/* ------ */
-
-
-/* BASICS */
-
 html {
     overflow-y: scroll;
     min-height: 100.5%;
@@ -157,15 +151,13 @@ html {
 
 body {
     background: #fff;
-    color: #444;
     font: normal 10px arial, helvetica, geneva, sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
-
-
-
-/* auf dem Bildschirm verbergen */
 
 .vs {
   position: absolute;
@@ -175,12 +167,6 @@ body {
   width: 1px;
   height: 1px;
   white-space: nowrap;
-}
-
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
 }
 
 
