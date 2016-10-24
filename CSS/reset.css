@@ -127,11 +127,6 @@ svg:not(:root) {
 }
 
 
-.aus {
-    display: none;
-    visibility: hidden;
-}
-
 .cl:before, .cl:after {
     display: table;
     visibility: hidden;
