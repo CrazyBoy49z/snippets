@@ -30,3 +30,17 @@
     background: rgba(0, 0, 0, 0.7);
 }
 
+/* BURGER-MENU */
+
+#element:after {
+    content: " ";
+    position: relative;
+    display: inline-block;
+    top: .1em;
+    left: 0;
+    border-top: 1.5em double #237;
+    border-bottom: .5em solid #237;
+    width: 2em;
+    height: .5em;
+    background: transparent;
+}
