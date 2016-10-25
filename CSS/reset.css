@@ -108,7 +108,7 @@ svg:not(:root) {
 }
 
 
-[hidden], .hidden {
+[hidden], .hidden, hr {
     display: none;
 }
 
