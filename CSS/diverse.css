@@ -1,0 +1,17 @@
+/* LETZTES UNGERADES ELEMENT */
+
+
+/* element alle: chocolate */
+.element {
+    color: chocolate
+}
+
+/* eleemnt gerade: cadetblue */
+.navElement:nth-child(even) {
+    color: cadetblue
+}
+
+/* falls das letzte Element ein ungerades ist: darkcyan */
+.element:nth-child(odd):nth-last-child(1) {
+    color: darkcyan;
+}
