@@ -14,7 +14,7 @@
      ## verhindert die Übernahme von Inhalten in Frames auf anderen Seiten
     Header set X-Frame-Options "SAMEORIGIN"
     ## mit Content-Securtiy-Policy kann definiert werden, aus welchen Quellen der zum Browser übertragen Code stammen darf. Die Sache ist gut, aber nicht ganz trivial, Erläuterungen siehe https://www.html5rocks.com/en/tutorials/security/content-security-policy/ und https://developer.mozilla.org/en-US/docs/Web/Security/CSP
-    Header set Content-Security-Policy: "base-uri https://junkers-paddelgemeinschaft.de; default-src https:; script-src https: 'unsafe-inline' 'unsafe-eval'; style-src https: 'unsafe-inline'; child-src https://junkers-paddelgemeinschaft.de https://www.youtube-nocookie.com/" 
+    #Header set Content-Security-Policy: "base-uri https://junkers-paddelgemeinschaft.de; default-src https:; script-src https: 'unsafe-inline' 'unsafe-eval'; style-src https: 'unsafe-inline'; child-src https://junkers-paddelgemeinschaft.de https://www.youtube-nocookie.com/" 
      ## nur für HTML, nicht für…
      <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
         Header unset X-XSS-Protection
@@ -198,17 +198,17 @@ RedirectMatch 403 (?i)apple-app-site-association
 RewriteRule (.+)\.(min|dev)\.(\d+)\.(js|css)$ $1.$2.$4 [L]
 
 ## MODx Evo: Exclude /assets and /manager directories and images from rewrite rules
-#RewriteRule ^(manager|assets|js|css|images|img)/.*$ - [L]
-#RewriteRule \.(jpg|jpeg|png|gif|ico)$ - [L]
+RewriteRule ^(manager|assets|js|css|images|img)/.*$ - [L]
+RewriteRule \.(jpg|jpeg|png|gif|ico)$ - [L]
 
 ## MODx Evo: Fix Apache internal dummy connections from breaking [(site_url)] cache
-#RewriteCond %{HTTP_USER_AGENT} ^.*internal\ dummy\ connection.*$ [NC]
-#RewriteRule .* - [F,L]
+RewriteCond %{HTTP_USER_AGENT} ^.*internal\ dummy\ connection.*$ [NC]
+RewriteRule .* - [F,L]
 
 ## MODx Evo: For Friendly URLs
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
 
 ## Beispiel für interne Umleitung einer alten auf eine neue Seite
 #Redirect 301 /neu http://domain.tld/alt
