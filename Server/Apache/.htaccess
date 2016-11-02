@@ -197,18 +197,18 @@ RedirectMatch 403 (?i)apple-app-site-association
 ## Zeitstempel einfügen in Dateien nach dem Schema mein-script.min.js. Muss mit PHP aufgelöst werden, verhindert den Rückgriff auf im Browser gecachte Version, wenn CSS- oder JS-Dateien aktualisiert werden
 RewriteRule (.+)\.(min|dev)\.(\d+)\.(js|css)$ $1.$2.$4 [L]
 
-## MODx Evo: Exclude /assets and /manager directories and images from rewrite rules
-RewriteRule ^(manager|assets|js|css|images|img)/.*$ - [L]
-RewriteRule \.(jpg|jpeg|png|gif|ico)$ - [L]
+## für MODx Evo: Exclude /assets and /manager directories and images from rewrite rules
+#RewriteRule ^(manager|assets|js|css|images|img)/.*$ - [L]
+#RewriteRule \.(jpg|jpeg|png|gif|ico)$ - [L]
 
-## MODx Evo: Fix Apache internal dummy connections from breaking [(site_url)] cache
-RewriteCond %{HTTP_USER_AGENT} ^.*internal\ dummy\ connection.*$ [NC]
-RewriteRule .* - [F,L]
+## für MODx Evo: Fix Apache internal dummy connections from breaking [(site_url)] cache
+#RewriteCond %{HTTP_USER_AGENT} ^.*internal\ dummy\ connection.*$ [NC]
+#RewriteRule .* - [F,L]
 
-## MODx Evo: For Friendly URLs
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+## für MODx Evo: For Friendly URLs
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
 
 ## Beispiel für interne Umleitung einer alten auf eine neue Seite
 #Redirect 301 /neu http://domain.tld/alt
