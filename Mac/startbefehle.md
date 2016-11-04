@@ -13,6 +13,7 @@
 * T: target disk mode.
 * X: Start up from an OS X startup volume when the Mac would otherwise start up from a non-OS X startup volume.
 * C: Start up from a bootable drive
+* ⇧+⌥+⌃+⌽ Reset SMC
 * ⌘-V: verbose mode
 * N: Start up from a compatible NetBoot server.
 * ⌥-N: Start up from a NetBoot server using the default boot image.
@@ -24,5 +25,3 @@
 ## Probleme beim Aufwachen
 
 * `sudo rm /var/vm/sleepimage` löscht Hibernation-Datei
-
-
