@@ -1,4 +1,6 @@
-# Startbefehle
+# Startprobleme
+
+## Startbefehle
 
 * ⌘-⌥-P-R: Reset NVRAM.
 * ⇧: Safe Mode.
@@ -14,3 +16,13 @@
 * ⌘-V: verbose mode
 * N: Start up from a compatible NetBoot server.
 * ⌥-N: Start up from a NetBoot server using the default boot image.
+
+## Einstellungen
+
+* Systemeinstellungen > Startvolume: aktivieren
+
+## Probleme beim Aufwachen
+
+* `sudo rm /var/vm/sleepimage` löscht Hibernation-Datei
+
+
