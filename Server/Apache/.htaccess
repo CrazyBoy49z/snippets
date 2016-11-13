@@ -148,6 +148,9 @@ php_value session.use_trans_sid 0
 ## Ab PHP 5.4: sicherer hash des Session-Cookies
 #php_value session.hash_function sha512
 
+## Laden von remote-Code unterbinden
+php_value allow_url_fopen Off
+php_value allow_url_include Off
 
 ### Server-Einstellungen
 
