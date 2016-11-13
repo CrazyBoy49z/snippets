@@ -37,6 +37,13 @@ ServerSignature Off
 </Files>
 
 
+## Für MODx: blockiert direkte Aufrufe der config.inc.php 
+<Files "config.inc.php">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
+
 
 ## Beispiel: Zugriff auf sicherheitsrelevante Dateien unterbinden wie meine-datei.bak oder meine-datei.config
 #<FilesMatch "(\.(bak|config|sql|fla|ini|log|sh|inc|swp|dist)|~)$">
@@ -50,11 +57,11 @@ Options -Indexes
 IndexIgnore *
 
 
-## Gefährliche Anfragen unterbinden.
+## Gefährliche Anfragen unterbinden
 <IfModule mod_rewrite.c>
-    # Die folgende Zeile abschalten, wenn Serverfehler auftreten
 	RewriteEngine On
 	RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
+    RewriteCond %{QUERY_STRING} revslider [NC,OR]
 	RewriteCond %{QUERY_STRING} (127\.0\.0\.1) [NC,OR]
 	RewriteCond %{QUERY_STRING} ([a-z0-9]{2000}) [NC,OR]
 	RewriteCond %{QUERY_STRING} (javascript:)(.*)(;) [NC,OR]
@@ -75,6 +82,14 @@ IndexIgnore *
 	RewriteRule .* - [F]
 </IfModule>
 
+<IfModule mod_rewrite.c>
+	RewriteCond %{REQUEST_URI}  (mssqlil|register|manager).php [NC,OR]
+	RewriteCond %{REQUEST_URI}  (img|thumb|thumb_editor|thumbopen).php [NC,OR]
+	RewriteCond %{QUERY_STRING} (img|thumb|thumb_editor|thumbopen).php [NC,OR]
+	RewriteCond %{REQUEST_URI}  revslider [NC,OR]
+	RewriteCond %{QUERY_STRING} revslider [NC]
+	RewriteRule .* - [F,L]
+</IfModule>
 
 <IfModule mod_rewrite.c>
 	RewriteCond %{HTTP_REFERER} ([a-z0-9]{2000}) [NC,OR]
@@ -95,13 +110,15 @@ IndexIgnore *
 	RedirectMatch 403 (?i)(&pws=0|_vti_|\(null\)|\{\$itemURL\}|echo(.*)kae|etc/passwd|eval\(|self/environ)
 	RedirectMatch 403 (?i)\.(aspx?|bash|bak?|cfg|cgi|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rar|rdf)$
 	RedirectMatch 403 (?i)/(^$|(wp-)?config|mobiquo|phpinfo|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|webshell)\.php
+    RedirectMatch 410 (NULL(.*)NULL(.*)NULL|INFORMATION_SCHEMA\.CHARACTER_SETS|SELECT(.*)CASE(.*)WHEN|AND(.*)AND(.*)oNnL|CONVERT(.*)INT(.*)SELECT|SELECT(.*)SLEEP|WAITFOR(.*)DELAY|DBMS_PIPE\.RECEIVE_MESSAGE)
 </IfModule>
 
 
 <IfModule mod_setenvif.c>
 	SetEnvIfNoCase User-Agent ([a-z0-9]{2000}) bad_bot
 	SetEnvIfNoCase User-Agent (archive.org|binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|kmccrew|loader|miner|nikto|nutch|planetwork|postrank|purebot|pycurl|python|seekerspider|siclab|skygrid|sqlmap|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
-	
+</IfModule>	
+    
     ## Apache < 2.3
 	<IfModule !mod_authz_core.c>
 		Order Allow,Deny
@@ -116,18 +133,29 @@ IndexIgnore *
 			Require not env bad_bot
 		</RequireAll>
 	</IfModule>
-</IfModule>
+
+## Session-Cookie gegen Manipulation absichern http://stackoverflow.com/questions/23529234/use-strict-mode-in-php-sessions
+php_value session.use_strict_mode 1
+## Kein Zugriff auf Seesion-ID mit JS
+php_value session.cookie_httponly 1
+## Session-ID wird nur in Cookies übertragen, nicht als URL-Parameter
+php_value session.use_cookies 1
+php_value session.use_only_cookies 1
+php_value session.use_trans_sid 0
+## Nur bei https verwenden
+#php_value session.cookie_secure 1
+
+## Ab PHP 5.4: sicherer hash des Session-Cookies
+#php_value session.hash_function sha512
+
 
 ### Server-Einstellungen
 
 ## Erst für die produktive Site freigeben. Pfad ermitteln mit PHP-Datei im root der Site mit folgendem Inhalt: <?php echo $_SERVER["DOCUMENT_ROOT"] ?> Datei anschließend löschen!
-#php_value open_basedir /mein/pfad/…
+#php_value open_basedir /www/htdocs/w00f2f21/web/modx11/
 
-## Nur freischalten, wenn keine weiteren .htaccess-Dateien in Unterverzeichnissen stecken
+## Nur frreischalten, wenn keine weiteren .htaccess-Dateien in Unterverzeichnissen stecken
 #AllowOverride None
-
-## Beschränkt die Größe der hochladbaren Dateien und erschwert so einen Weg von DoS-Attacken. Angabe in Bits.  Voreinstellung hier: 1 Mb
-#LimitRequestBody 1048576
 
 ### Server-Einstellungen
 
