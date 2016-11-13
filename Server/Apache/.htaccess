@@ -126,8 +126,8 @@ IndexIgnore *
 ## Nur freischalten, wenn keine weiteren .htaccess-Dateien in Unterverzeichnissen stecken
 #AllowOverride None
 
-## Beschränkt die Größe der hochladbaren Dateien und erschwert so einen Weg von DoS-Attacken. Angabe in Bits. 
-#LimitRequestBody 10240000
+## Beschränkt die Größe der hochladbaren Dateien und erschwert so einen Weg von DoS-Attacken. Angabe in Bits.  Voreinstellung hier: 1 Mb
+#LimitRequestBody 1048576
 
 ### Server-Einstellungen
 
