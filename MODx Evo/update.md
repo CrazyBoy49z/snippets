@@ -38,3 +38,4 @@ asstes/files
 assets/media 
 assets/.thumbs
 assets/backup
+install
