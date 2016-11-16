@@ -18,7 +18,7 @@
 * **neuer Server** `.htaccess`anpassen
 * **neues MODx** Installation starten: Fortgeschrittenen-Modus wählen, neue Datenbankverbindung auswählen, alle Chunks und Tempalte Variablen abwählen, bei Bedarf Rechte korrigieren
 * **neues MODx** Login, `assets`-Pfade in der Konfiguration anpassen
-* **neues MODx** Frontend aufrufen. Häufige Probleme: falsche Berechtigung, dann zunächst einfach für die entsprechende Bilddatei korriergieren. Wnn Snippets mit dem include-Snippet aufgerufen wurden, kann vor allem Wayfinder herumzicken - dann direkt aufrufen
+* **neues MODx** Frontend aufrufen. Häufige Probleme: falsche Berechtigung, dann zunächst einfach für die entsprechende Bilddatei korriergieren. Wenn Snippets mit dem include-Snippet aufgerufen wurden, kann vor allem Wayfinder herumzicken - dann direkt aufrufen
 * **neues MODx**: `/install` löschen, möglichst überflüssige Plugins und Snippets in `/assets` löschen
 * **neues MODx**: Dateien in `/manager` und `/assets/` chmod 644, anschließend `/assets/cache/sitePublishing.idx.php` und `/assets/cache/siteCache.idx.php`chmod 777; `/manager/includes/config.inc.php`, `/index.php` und `.htaccess` chmod 444; Verzeichnis, das die Installation enthält, chmod 445 (Achtung! Vor FTP-Uploads auf 644 setzen)
 * **neues MODx**: in der Produktiv-Variante: alle Variablen [(site_url)] (z.B. im `<head>` für `<base>`, `<link rel="canonical"`, `<link hreflang="de"`) gegen hart codierte URL austauschen
