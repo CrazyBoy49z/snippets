@@ -34,7 +34,7 @@ manager/includes/config.inc.php
 assets/images
 assets/drgalleries
 assets/docs
-asstes/files
+assets/files
 assets/media 
 assets/.thumbs
 assets/backup
