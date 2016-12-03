@@ -20,7 +20,11 @@
 * **neues MODx** Login, `assets`-Pfade in der Konfiguration anpassen
 * **neues MODx** Frontend aufrufen. Häufige Probleme: falsche Berechtigung, dann zunächst einfach für die entsprechende Bilddatei korriergieren. Wenn Snippets mit dem include-Snippet aufgerufen wurden, kann vor allem Wayfinder herumzicken - dann direkt aufrufen
 * **neues MODx**: `/install` löschen, möglichst überflüssige Plugins und Snippets in `/assets` löschen
-* **neues MODx**: Dateien in `/manager` und `/assets/` chmod 644, anschließend `/assets/cache/sitePublishing.idx.php` und `/assets/cache/siteCache.idx.php`chmod 777; `/manager/includes/config.inc.php`, `/index.php` und `.htaccess` chmod 444; Verzeichnis, das die Installation enthält, chmod 445 (Achtung! Vor FTP-Uploads auf 644 setzen)
+* **neues MODx**: PHP-Dateien in `/manager`und `/assets/lib/`, `/assets/modules/`, `/assets/plugins`, `/assets/snipptes` chmod 600 (geht mit Yummy-FTP so: "Dateiliste" -> "Filter" -> "Server-Filter" -> "Folgende Server-Objekte nicht anzeigen: aktiv" -> "Name enthält nicht: php" -> "Ordner einbeziehen: deaktivieren" -> "Anwenden auf: Dateiliste)
+* **neues MODx**: `/assets/cache/sitePublishing.idx.php` und `/assets/cache/siteCache.idx.php`chmod 666;
+* **neues MODx**: alle Ordner in `/assets` außer `/.thumbs`, `/cache`, `/modules`, `/plugins`, `/snippets` und den tatsächlich für Uploads benutzten auf chmod 644
+* **neues MODx**: `.htacces`-Dateien auf chmod 644;
+* **neues MODx**: Verzeichnis, das die Installation enthält, chmod 555 (Achtung! Vor FTP-Uploads auf 755 setzen)
 * **neues MODx**: in der Produktiv-Variante: alle Variablen [(site_url)] (z.B. im `<head>` für `<base>`, `<link rel="canonical"`, `<link hreflang="de"`) gegen hart codierte URL austauschen
 * **eigener Rechner** `manager/includes/config.inc.php` löschen
 
