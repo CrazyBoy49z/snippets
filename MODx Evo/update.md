@@ -20,7 +20,8 @@
 * **neues MODx** Login, `assets`-Pfade in der Konfiguration anpassen
 * **neues MODx** Frontend aufrufen. Häufige Probleme: falsche Berechtigung, dann zunächst einfach für die entsprechende Bilddatei korriergieren. Wenn Snippets mit dem include-Snippet aufgerufen wurden, kann vor allem Wayfinder herumzicken - dann direkt aufrufen
 * **neues MODx**: `/install` löschen, möglichst überflüssige Plugins und Snippets in `/assets` löschen
-* **neues MODx**: PHP-Dateien in `/manager`und `/assets/lib/`, `/assets/modules/`, `/assets/plugins`, `/assets/snipptes` chmod 600 (geht mit Yummy-FTP so: "Dateiliste" -> "Filter" -> "Server-Filter" -> "Folgende Server-Objekte nicht anzeigen: aktiv" -> "Name enthält nicht: php" -> "Ordner einbeziehen: deaktivieren" -> "Anwenden auf: Dateiliste)
+* **Achtung: Der Part chmod ist vorläufig**
+* **neues MODx**: PHP-Dateien in `/manager`und `/assets/lib/`, `/assets/modules/`, `/assets/plugins`, `/assets/snipptes` chmod 600 
 * **neues MODx**: `/assets/cache/sitePublishing.idx.php` und `/assets/cache/siteCache.idx.php`chmod 666;
 * **neues MODx**: alle Ordner in `/assets` außer `/.thumbs`, `/cache`, `/modules`, `/plugins`, `/snippets` und den tatsächlich für Uploads benutzten auf chmod 644
 * **neues MODx**: `.htacces`-Dateien auf chmod 644;
