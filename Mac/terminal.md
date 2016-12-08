@@ -13,3 +13,8 @@
 ## Alle Programm-Namen in eine Datei schreiben
 
     $ sudo find / -iname *.app > ~/Desktop/AllApps.txt
+    
+## Versteckte Dateien im Fidner zeigen
+
+    $ defaults write com.apple.finder AppleShowAllFiles 1
+    $ killall Finder
