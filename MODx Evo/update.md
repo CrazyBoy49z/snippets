@@ -16,7 +16,7 @@ Bedarf der Überabreitung.
 * **neuer Server** Datenbank anlegen, alte Datenbank übertragen, in phpMyAdmin Tabelle optimieren und reparieren
 * **neuer Server** Daten von lokal hochladen, `/manager` bis auf `/manager/includes/config,inc.php` ignorerien
 * **neuer Server** neue MODx-Installation hochladen
-* **neuer Server** siehe security.md
+* **neuer Server** [siehe security.md](/snippets/blob/master/MODx Evo/securitiy.md)
 * **eigener Rechner** `manager/includes/config.inc.php` löschen
 
 
