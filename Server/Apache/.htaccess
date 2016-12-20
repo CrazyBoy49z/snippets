@@ -1,4 +1,4 @@
-###### Version 2.0 beta7
+###### Version 2.0 beta8
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -30,8 +30,8 @@
     </Limit>
 
 #### KRITISCHE DATEIEN BLOCKIEREN 
-## (.htaccess, .git(ignore), *.inc.php, Google-Bestätigung)
-    <FilesMatch "(^.*\.(htaccess|[git])|(\.(?:inc.php)$)|(^google[0-9a-zA-Z]+.html$))">
+## (.htaccess, *.inc.php, Google-Bestätigung)
+    <FilesMatch "(^.*\.(htaccess)|(\.(?:inc.php)$)|(^google[0-9a-zA-Z]+.html$))">
         order allow,deny
         deny from all
     </FilesMatch>
