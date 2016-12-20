@@ -1,0 +1,175 @@
+Version 1.0
+
+User-agent: Yandex
+Crawl-delay: 15
+
+User-agent: 008
+Disallow: /
+
+User-agent: 360Spider
+Disallow: /
+
+User-agent: backlink-check.de
+Disallow: /
+
+User-agent: BacklinkCrawler
+Disallow: /
+
+User-agent: DittoSpyder
+Disallow: /
+
+User-agent: DOC
+Disallow: /
+
+User-agent: Download Ninja
+Disallow: /
+
+User-agent: Exabot
+Disallow: /
+
+User-agent: ExtractorPro
+Disallow: /
+
+User-agent: fast
+Disallow: /
+
+User-agent: Fasterfox
+Disallow: /
+
+User-agent: Fetch
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: IsraBot
+Disallow: /
+
+User-agent: k2spider
+Disallow: /
+
+User-agent: larbin
+Disallow: /
+
+User-agent: libwww
+Disallow: /
+
+User-agent: LinkextractorPro
+Disallow: /
+
+User-agent: linko
+Disallow: /
+
+User-agent: LinkWalker
+Disallow: /
+
+User-agent: Microsoft.URL.Control
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: MSIECrawler
+Disallow: /
+
+User-agent: NaverBot
+Disallow: /
+
+User-agent: NPBot
+Disallow: /
+
+User-agent: oBot
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: Openbot
+Disallow: /
+
+User-agent: Orthogaffe
+Disallow: /
+
+User-Agent: psbot
+Disallow: /
+
+User-agent: rogerbot 
+Disallow: /
+
+User-agent: SearchmetricsBot
+Disallow: /admin/
+
+User-agent: searchpreview
+Disallow: /
+
+User-agent: SEODAT
+Disallow: /
+
+User-agent: SEOENGBot
+Disallow: /
+
+User-agent: SEOkicks-Robot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: sistrix
+Disallow: /
+
+User-agent: Teleport
+Disallow: /
+
+User-agent: TeleportPro
+Disallow: /
+
+User-agent: True_Robot
+Disallow: /
+
+User-agent: UbiCrawler
+Disallow: /
+
+User-agent: um-IC
+Disallow: /
+
+User-agent: URL Control
+Disallow: /
+
+User-agent: URL_Spider_Pro
+Disallow: /
+
+User-agent: voltron
+Disallow: /
+
+User-agent: vscooter
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: WebReaper
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: Xenu
+Disallow: /
+
+User-agent: xovi
+Disallow: /
+
+User-agent: Zao
+Disallow: /
+
+User-agent: Zealbot
+Disallow: /
+
+User-agent: ZyBORG
+Disallow: /
