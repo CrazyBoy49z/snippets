@@ -301,7 +301,7 @@ Options -Indexes -FollowSymLinks -Includes
 
     <IfModule mod_headers.c>
 ## SET! 
-        Header set Content-Security-Policy: "base-uri https://junkers-paddelgemeinschaft.de/" 
+        #Header set Content-Security-Policy: 
     </IfModule>
 
 ### UMLEITUNGEN
