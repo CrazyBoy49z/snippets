@@ -1,4 +1,4 @@
-Version 1.0
+Version 1.0.1
 
 User-agent: Yandex
 Crawl-delay: 15
@@ -94,6 +94,9 @@ User-Agent: psbot
 Disallow: /
 
 User-agent: rogerbot 
+Disallow: /
+
+User-agent: Screaming Frog SEO Spider
 Disallow: /
 
 User-agent: SearchmetricsBot
