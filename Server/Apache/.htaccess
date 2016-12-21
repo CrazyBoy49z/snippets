@@ -1,4 +1,4 @@
-###### Version 2.0 beta8
+###### Version 2.0 beta9
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -40,7 +40,11 @@
 	RewriteRule .* - [F,L]    
 
 
-#### UNSINNIGE,ÜBERFLÜSSIGE ODER GEFÄHRLICHE ANFRAGEN
+#### ANFRAGEN BLOCKIEREN
+
+## SET! Nicht erfoerderliche MODx-Verzeichnisse blockieren  
+    RewriteCond %{REQUEST_URI} ([assets\/](backup|export|flash|import)) [NC]
+    RewriteRule .* - [F,L]
     RewriteCond %{REQUEST_URI}  (oaklayer|phpmyadmin|raybaner|revslider|test-for-404-page|tel:+) [NC,OR]
     RewriteCond %{REQUEST_URI}  (wordpress|([wp-](admin|config|content|includes|login))|wpcontent) [NC,OR]
     RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
