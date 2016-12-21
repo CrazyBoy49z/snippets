@@ -1,4 +1,4 @@
-###### Version 2.0 beta10
+###### Version 2.0 beta11
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -42,15 +42,15 @@
 
 #### ANFRAGEN BLOCKIEREN
 
-## SET! Nicht unbedingt erforderliche MODx-Verzeichnisse komplett blockieren  
-    RewriteCond %{REQUEST_URI} ([assets\/](backup|export|flash|import)) [NC]
-    RewriteRule .* - [F,L]
-## SET! PHP in typischen MODx-Verzeichnissen blockieren, wo dies nicht erforderlich ist      
-    RewriteCond %{REQUEST_URI} ([assets\/](.thumbs|drgalleries|images|galleries|js|snippets|tv))*\.php [NC]
-    RewriteRule .* - [F,L]
-## SET! Blockade von PHP in zusätzlich eingerichteten Verzeichnissen
-    RewriteCond %{REQUEST_URI} (client)*\.php [NC]
-    RewriteRule .* - [F,L]    
+## TODO! Nicht unbedingt erforderliche MODx-Verzeichnisse komplett blockieren  
+    #RewriteCond %{REQUEST_URI} ([assets\/](backup|export|flash|import)) [NC]
+    #RewriteRule .* - [F,L]
+## TODO! PHP in typischen MODx-Verzeichnissen blockieren, wo dies nicht erforderlich ist      
+    #RewriteCond %{REQUEST_URI} ([assets\/](\.thumbs|drgalleries|images|galleries|js))*\.php [NC]
+    #RewriteRule .* - [F,L]
+## TODO! Blockade von PHP in zusätzlich eingerichteten Verzeichnissen
+    #RewriteCond %{REQUEST_URI} ([client\/](css|scripts|grafik|fonts))*\.php [NC]
+    #RewriteRule .* - [F,L]    
     RewriteCond %{REQUEST_URI}  (oaklayer|phpmyadmin|raybaner|revslider|test-for-404-page|tel:+) [NC,OR]
     RewriteCond %{REQUEST_URI}  (wordpress|([wp-](admin|config|content|includes|login))|wpcontent) [NC,OR]
     RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
@@ -62,14 +62,14 @@
 	RewriteCond %{QUERY_STRING} (GLOBALS|REQUEST)(=|\[|%) [NC,OR]
 	RewriteCond %{QUERY_STRING} (<|%3C)(.*)script(.*)(>|%3) [NC,OR]
 ## SET! Folgende Regel für MODx Evo eventuell auskommentieren, verhindert Öffnen des Verzeichnisbaums
-	RewriteCond %{QUERY_STRING} (\\|\.\.\.|\.\./|~|`|<|>|\|) [NC,OR]
+	#RewriteCond %{QUERY_STRING} (\\|\.\.\.|\.\./|~|`|<|>|\|) [NC,OR]
 	RewriteCond %{QUERY_STRING} (boot\.ini|etc/passwd|self/environ) [NC,OR]
 	RewriteCond %{QUERY_STRING} (thumbs?(_editor|open)?|tim(thumb)?)\.php [NC,OR]
 	RewriteCond %{QUERY_STRING} (\'|\")(.*)(drop|insert|md5|select|union) [NC,OR]
     RewriteCond %{QUERY_STRING} (=\\\'|=\\%27|/\\\'/?)\. [NC,OR]
     RewriteCond %{QUERY_STRING} (?i)/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$ [NC,OR]
 	RewriteCond %{QUERY_STRING} (?i)(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\") [NC,OR]
-	RewriteCond %{QUERY_STRING} (?i)(~|`|<|>|:|,|\\|\s|\{|\}|\[|\]|\|) [NC,OR]
+	RewriteCond %{QUERY_STRING} (?i)(~|`|<|>|:|,|\\|\s|\{|\}|\[|\]) [NC,OR]
 ## SET! Kann eventuell den Datei-Manager blockieren
     #RewriteCond %{QUERY_STRING} (?i)(%) [NC,OR]
 ## SET! Kann eventuell den Anforderung eines neuen PW im webloginpe blockieren
