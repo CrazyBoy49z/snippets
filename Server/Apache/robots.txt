@@ -1,4 +1,4 @@
-Version 1.0.2
+Version 1.0.4
 
 User-agent: Yandex
 Crawl-delay: 15
@@ -75,6 +75,9 @@ Disallow: /
 User-agent: MSIECrawler
 Disallow: /
 
+User-agent: MojeekBot
+Disallow: /
+
 User-agent: NaverBot
 Disallow: /
 
@@ -103,7 +106,7 @@ User-agent: Screaming Frog SEO Spider
 Disallow: /
 
 User-agent: SearchmetricsBot
-Disallow: /admin/
+Disallow: /
 
 User-agent: searchpreview
 Disallow: /
@@ -124,6 +127,9 @@ User-agent: SiteSnagger
 Disallow: /
 
 User-agent: sistrix
+Disallow: /
+
+User-agent: spbot
 Disallow: /
 
 User-agent: Teleport
