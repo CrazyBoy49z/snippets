@@ -1,4 +1,4 @@
-Version 1.0.4
+Version 1.0.5
 
 User-agent: Yandex
 Crawl-delay: 15
@@ -10,6 +10,9 @@ User-agent: 360Spider
 Disallow: /
 
 User-agent: backlink-check.de
+Disallow: /
+
+User-agent: AhrefsBot
 Disallow: /
 
 User-agent: BacklinkCrawler
