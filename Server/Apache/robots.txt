@@ -1,4 +1,4 @@
-Version 1.0.5
+Version 1.0.6
 
 User-agent: Yandex
 Crawl-delay: 15
@@ -67,6 +67,9 @@ User-agent: linko
 Disallow: /
 
 User-agent: LinkWalker
+Disallow: /
+
+User-agent: metajobbot
 Disallow: /
 
 User-agent: Microsoft.URL.Control
