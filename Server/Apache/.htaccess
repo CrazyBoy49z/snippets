@@ -1,4 +1,4 @@
-###### Version 2.0 beta11
+###### Version 2.0 beta12
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -147,10 +147,8 @@
 
         ExpiresByType application/x-font-ttf "access plus 1 year"
         ExpiresByType application/font-woff "access plus 1 year"
-        ExpiresByType application/x-font-woff "access plus 1 year"
-        ExpiresByType font/woff "access plus 1 year"
-        ExpiresByType application/font-woff2 "access plus 1 year"
-
+        ExpiresByType font/woff2    "access plus 1 year"
+        
         ExpiresByType text/x-cross-domain-policy "access plus 1 week" 
 
 ## alte Browser
@@ -182,7 +180,7 @@
 
         AddType font/truetype                  		ttf
         AddType application/font-woff        		woff
-        AddType application/font-woff2  			woff2
+        AddType font/woff2  			            woff2
 
         AddType audio/mpeg 							mp3
         AddType audio/mp4 							m4a mp4 mpa                                                           
