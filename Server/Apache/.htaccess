@@ -300,11 +300,6 @@ Options -Indexes -FollowSymLinks -Includes
 
 #### HEADER
 
-    <IfModule mod_headers.c>
-## SET! 
-        #Header set Content-Security-Policy: 
-    </IfModule>
-
 ### UMLEITUNGEN
     Options +FollowSymlinks +SymLinksIfOwnerMatch
     RewriteBase /
@@ -335,9 +330,9 @@ Options -Indexes -FollowSymLinks -Includes
     #RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 ## Rewrite alles auf https://www.
-    RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
-    RewriteCond %{HTTPS}s ^on(s)|
-    RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    #RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+    #RewriteCond %{HTTPS}s ^on(s)|
+    #RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ## <--- ENDE
 
 ## Zeitstempel einfügen in Dateien nach dem Schema mein-script.min.js. Muss mit PHP aufgelöst werden
