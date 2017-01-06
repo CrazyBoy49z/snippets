@@ -1,4 +1,2 @@
-chmod php files 600
-
 AddHandler cgi-script .php .sh .cgi
 Options -ExecCGI
