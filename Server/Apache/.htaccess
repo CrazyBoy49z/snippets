@@ -1,4 +1,4 @@
-###### Version 2.0 beta12
+###### Version 2.0 beta14
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -8,8 +8,11 @@
 ## SET! nach TLD 
     RewriteCond %{HTTP_REFERER} ^https?://[^/]+\.(br|by|in|kz|no|ru|pk|ro|tr|ua)/? [NC]
     RewriteRule .* - [F,L]
+## leerer User-Agent
+	RewriteCond %{HTTP_USER_AGENT} ^$ [NC]
+	RewriteRule .* - [F] 	
 ## nach Referer
-    RewriteCond %{HTTP_REFERER} (1-free-share-buttons|aviav|electricwheelchairsarea.com|offbyone|semalt|todaperfeita|trainersuchmaschine|vebidoo|wp-login.php) [NC,OR]
+    RewriteCond %{HTTP_REFERER} (1-free-share-buttons|aviav|offbyone|semalt|todaperfeita|trainersuchmaschine|vebidoo|wp-login.php) [NC,OR]
     RewriteCond %{HTTP_REFERER} ([a-z0-9]{2000,}) [NC]
     RewriteRule .* - [F,L]
 ## nach Request-Methoden
@@ -17,8 +20,12 @@
     RewriteRule .* - [F,L]
 ## nach User-Agent
     SetEnvIfNoCase User-Agent ([a-z0-9]{2000,}) bad_bot
-	SetEnvIfNoCase User-Agent (AhrefsBot|BLEXBot|boogle|dataprovider|flamingosearch|HaosouSpider|megaindex|MetaJobBot|MJ12bot|netcraft|offbyone|OpenLinkProfiler|SEOkicks|seoscanners|ubermetrics|WBSearchBot|wotbox|XoviBot) bad_bot
-    SetEnvIfNoCase User-Agent (archive.org|binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|kmccrew|loader|miner|nikto|nutch|planetwork|postrank|purebot|pycurl|python|seekerspider|siclab|skygrid|sqlmap|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
+    SetEnvIfNoCase User-Agent (\{) bad_bot
+    SetEnvIfNoCase User-Agent (backlinkcrawler|baiduspider|linkdexbot|scrapyproject|seokicks-robot|sophora) bad_bot
+    SetEnvIfNoCase User-Agent (domainappender) bad_bot
+    SetEnvIfNoCase User-Agent (seoscanners) bad_bot
+    SetEnvIfNoCase User-Agent (kraken) bad_bot
+	SetEnvIfNoCase User-Agent (binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|kmccrew|loader|miner|nikto|nutch|planetwork|postrank|purebot|pycurl|python|seekerspider|siclab|skygrid|sqlmap|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
 ## nach IP-Adressen SET!
     <Limit GET HEAD OPTIONS POST PUT>
         order deny,allow
@@ -252,6 +259,11 @@
     php_value session.use_only_cookies 1
     php_value session.use_trans_sid 0
     php_value session.hash_function sha512
+## SET! Nur bei https verwenden
+	#php_value session.cookie_secure 1
+## TEST! Wirkung bei all-ikl.com fraglich
+	#php_value session.save_path /tmp/phpfpmsessions/
+		
 
 
 ##### SPEZIAL ===========
@@ -264,11 +276,10 @@ Options -Indexes -FollowSymLinks -Includes
 ## SET! Die Angabe :/tmp undedingt überprüfen  funktionieren Uploads?
 #php_value open_basedir /www/htdocs/w00f2f21/web/modx11:/tmp
 
-## SET! Zahl der parallelen Updlosds
+## SET! Zahl der parallelen Updloads
     php_value max_file_uploads 10
 ## SET! Größe von Upload-Files begrenzen    
     php_value upload_max_filesize 2M
-
 
 ## Veraltet! Ab PHP 5.4 überflüssig.
     #php_flag magic_quotes_gpc off
@@ -283,14 +294,6 @@ Options -Indexes -FollowSymLinks -Includes
     DefaultLanguage de-DE
 ## SET! Zeitzone
     SetEnv TZ Europe/Berlin
-
-
-### COOKIES
-
-## TEST! Wirkung bei all-ikl.com fraglich
-    #php_value session.save_path /tmp/phpfpmsessions/
-## SET! Nur bei https verwenden
-    php_value session.cookie_secure 1
 
 
 ##### DOMAIN ===========
@@ -327,14 +330,14 @@ Options -Indexes -FollowSymLinks -Includes
 
 
 ## Rewrite alles auf https://
-    RewriteCond %{HTTPS} on
-    RewriteCond %{HTTP_HOST} ^www\.(.*)
-    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    #RewriteCond %{HTTPS} on
+    #RewriteCond %{HTTP_HOST} ^www\.(.*)
+    #RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 ## Rewrite alles auf https://www.
-    #RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
-    #RewriteCond %{HTTPS}s ^on(s)|
-    #RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+    RewriteCond %{HTTPS}s ^on(s)|
+    RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ## <--- ENDE
 
 ## Zeitstempel einfügen in Dateien nach dem Schema mein-script.min.js. Muss mit PHP aufgelöst werden
