@@ -32,6 +32,12 @@
 - 6 	0.00% 	Mozilla/5.0 (compatible; http://www.beammachine.de//0.5; URL status checker)
 
 
+- 48 	0.24% 	Mozilla/5.0 (compatible; Sophora; http://www.subshell.com)
+- 42 	0.21% 	Mozilla/5.0 (compatible; Kraken/0.1; http://linkfluence.net/; bot@linkfluence.net)
+- 24 	0.12% 	Mail/3124 CFNetwork/760.6.3 Darwin/15.6.0 (x86_64)
+- 3 	0.01% 	TestiTest1
+- 2 	0.01% 	Xenu Link Sleuth/1.3.8
+
 ## junkers-paddelgemeinschaft.de
 
 ### 12.1.
