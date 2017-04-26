@@ -11,3 +11,5 @@ und aufrufen mit
         FastClick.attach(document.body);
     }, false);
 }`
+
+Ab iOS9 entbehrlich
