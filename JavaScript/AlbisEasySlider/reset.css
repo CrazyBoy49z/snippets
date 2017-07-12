@@ -1,0 +1,204 @@
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, p, a, abbr, em, img, strong, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, main, menu, nav, section, summary, video {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    vertical-align: baseline;
+    font-size: 100%;
+}
+
+article, aside, canvas, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+    display: block;
+}
+
+a:hover, a:active  {
+    outline-width: 0;
+}
+
+ :focus {
+    outline: thin dotted;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+legend {
+    display: table;
+    box-sizing: border-box;
+    padding: 0;
+    max-width: 100%;
+    border: 0;
+    white-space: normal;
+}
+
+
+button, input, select, textarea {
+    margin: 0;
+    vertical-align: baseline;
+    font-size: 100%;
+}
+
+button, input {
+    line-height: normal;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+}
+
+[type="checkbox"], [type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+[type="search"] {
+    -webkit-appearance: textfield;
+}
+
+[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical;
+}
+
+input, textarea {
+    margin: 0;
+    border: 1px solid #ddd;
+    background-color: none;
+    vertical-align: bottom;
+}
+
+
+img, audio, video {
+    border-style: none;
+    vertical-align: middle;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+
+[hidden], .hidden, hr {
+    display: none;
+}
+
+.cl:before, .cl:after {
+    display: table;
+    visibility: hidden;
+    content: " ";
+}
+
+.cl:after {
+    clear: both;
+}
+
+
+html {
+    overflow-y: scroll;
+    min-height: 100.5%;
+    height: 100%;
+}
+
+body {
+    background: #fff;
+    font: normal 10px arial, helvetica, geneva, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    text-rendering: optimizeLegibility;
+}
+
+.vs {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: inset(50%);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
+
+
+nav ul {
+    list-style: none;
+}
+
+
+
+/* --- 2. CSS --- */
+
+
+a, input, button {
+    -ms-touch-action: none;
+    touch-action: none;
+    -webkit-text-decoration-skip: objects;
+}
+
+
+abbr {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+label {
+     cursor: pointer;
+}
+
+[disabled] {
+    cursor: default;
+}
+
+input:invalid, textarea:invalid {
+    background-color: #f0dddd;
+}
+
+.vs.focus:active, .vs.focus:focus {
+    position: static;
+    overflow: visible;
+    clip: auto;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
