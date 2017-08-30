@@ -186,142 +186,164 @@ img {
 (function(){
     var sliderElems = document.getElementsByClassName("sliderElem"),
         // Zahl der Elemente
-        sliderLength = sliderElems.length,
-        slide = document.getElementById("slide"),
-        position = 0,
-        albisSlider = document.getElementById("albisSlider"),
-        slideWidth = 100 / sliderLength + '%',
-        // Container für Buttons zum einzelen Aufruf der Slider
-        sliderControlsHTML = '<div id="sliderControls"></div>';
-    
-    // Breite des die Slider enthaltenen Containers definieren
-    slide.style["width"] = sliderLength + '00%';
-    // Container  für Buttons zum einzelen Aufruf der Slider einfügen
-    albisSlider.insertAdjacentHTML('beforeend', sliderControlsHTML);
-    
-    // ID und class der Einzel-Steuerelemente auslesen
-    var sliderControls = document.getElementById("sliderControls"),
-        singleSlideButton = document.getElementsByClassName("singleSlideButton");
-    
-    
-    for (var i = 0; i < sliderLength; i++) {
-        // Breite der einzelnen Sliderelemente definieren
-        sliderElems[i].setAttribute('style','width:' + slideWidth);
-        // Einzel-Steuerungsbuttons konstruieren und Funktion dranhängen
-        var singleSlideControl = "<button class='singleSlideButton' data-slideNumber=" + i + " aria-title='gehe zu Slide Nummer " + (i + 1) + "'></button>";
-        sliderControls.insertAdjacentHTML('beforeend', singleSlideControl);
-        singleSlideButton[i].addEventListener("click", getSingleSlide, false);
-    }
-   
-    // den 1. Button als aktiv markieren
-    singleSlideButton[0].className += ' singleSlideActive';
-   
-    
-    var sliderImg = document.getElementsByClassName("sliderImg");
-    // 2. Bild laden
-    sliderImg[1].setAttribute('src',sliderImg[1].getAttribute('data-src'));
-    sliderImg[1].setAttribute('srcset',sliderImg[1].getAttribute('data-srcset'));
-   
-    
-    // Navigationselemente auslesen
-    var nextSlideButton = document.getElementById("nextslide"),
-        prevSlideButton = document.getElementById("prevslide");
-        
-    // Navigationsfunktion aufrufen
-    nextSlideButton.addEventListener("click", nextSlide, false);
-    prevSlideButton.addEventListener("click", prevSlide, false);
-    
-  
-    
-      window.addEventListener("keydown", function(event) {
-            if (event.defaultPrevented) {
-                return; // Do nothing if the event was already processed
+        sliderLength = sliderElems.length;
+        if (sliderLength != 0) {
+            var slide = document.getElementById("slide"),
+                position = 0,
+                albisSlider = document.getElementById("albisSlider"),
+                slideWidth = 100 / sliderLength + '%',
+                // Container für Buttons zum einzelen Aufruf der Slider
+                sliderControlsHTML = '<div id="sliderControls"></div>';
+
+        // Breite des die Slider enthaltenen Containers definieren
+            slide.style["width"] = sliderLength + '00%';
+            // Container  für Buttons zum einzelen Aufruf der Slider einfügen
+            albisSlider.insertAdjacentHTML('beforeend', sliderControlsHTML);
+
+            // ID und class der Einzel-Steuerelemente auslesen
+            var sliderControls = document.getElementById("sliderControls"),
+                singleSlideButton = document.getElementsByClassName("singleSlideButton");
+
+
+            for (var i = 0; i < sliderLength; i++) {
+                // Breite der einzelnen Sliderelemente definieren
+                sliderElems[i].setAttribute('style','width:' + slideWidth);
+                // Einzel-Steuerungsbuttons konstruieren und Funktion dranhängen
+                var singleSlideControl = "<button class='singleSlideButton' data-slideNumber=" + i + " aria-title='gehe zu Slide Nummer " + (i + 1) + "'></button>";
+                sliderControls.insertAdjacentHTML('beforeend', singleSlideControl);
+                singleSlideButton[i].addEventListener("click", getSingleSlide, false);
             }
-            switch (event.key) {
-                case "ArrowLeft":
-                // für das 1. Bild abschalten    
-                if (position != 0) {       
-                    prevSlide();
+
+            // den 1. Button als aktiv markieren
+            singleSlideButton[0].className += ' singleSlideActive';
+
+
+            var sliderImg = document.getElementsByClassName("sliderImg");
+            // 2. Bild laden
+            sliderImg[1].setAttribute('src',sliderImg[1].getAttribute('data-src'));
+            sliderImg[1].setAttribute('srcset',sliderImg[1].getAttribute('data-srcset'));
+            sliderImg[1].setAttribute('data-loaded','true');
+
+
+            // Navigationselemente auslesen
+            var nextSlideButton = document.getElementById("nextslide"),
+                prevSlideButton = document.getElementById("prevslide");
+
+            // Navigationsfunktion aufrufen
+            nextSlideButton.addEventListener("click", nextSlide, false);
+            prevSlideButton.addEventListener("click", prevSlide, false);
+
+
+
+          window.addEventListener("keydown", function(event) {
+                if (event.defaultPrevented) {
+                    return; // Do nothing if the event was already processed
                 }
-                break;
-                case "ArrowRight":
-                // für letztes Bild abschalten    
-                if (position != sliderLength - 1) {  
-                    nextSlide();
-                }    
-                break;
-                default:
-                return; // Quit when this doesn't handle the key event.
+                switch (event.key) {
+                    case "ArrowLeft":
+                    // für das 1. Bild abschalten    
+                    if (position != 0) {       
+                        prevSlide();
+                    }
+                    break;
+                    case "ArrowRight":
+                    // für letztes Bild abschalten    
+                    if (position != sliderLength - 1) {  
+                        nextSlide();
+                    }    
+                    break;
+                    default:
+                    return; // Quit when this doesn't handle the key event.
+                }
+                // Cancel the default action to avoid it being handled twice??
+                //event.preventDefault();
+            }, true);
+
+        function nextSlide() {
+            position = Number(position) + 1;
+            sliderTranslate();
+            imageLoad();
+            sliderButtons();
+            activeSlide();
+        }
+
+
+        function prevSlide() {
+            position = Number(position) - 1;
+            sliderTranslate();
+            sliderButtons();
+            imageThisLoad();
+            activeSlide();
+        }
+
+        function getSingleSlide() {
+            // Position aus dem data-Atrribut des angeklickten Buttons lesen
+            position = Number(this.getAttribute('data-slideNumber'));
+
+            sliderTranslate();
+            imageThisLoad();
+            sliderButtons();
+            activeSlide();
+
+
+        }
+
+        function sliderTranslate() {
+            // Position des Bildes
+            var translate = position / sliderLength  * 100;
+            slide.style["transform"] = 'translate3d(-' + translate + '%, 0, 0)';
+        }
+
+        function imageThisLoad() {
+
+                if (position >= 1 && position <= sliderLength - 1 && sliderImg[position].getAttribute('data-loaded') != 'true' ) {
+                    sliderImg[position].setAttribute('srcset',sliderImg[position].getAttribute('data-srcset'));
+                    sliderImg[position].setAttribute('src',sliderImg[position].getAttribute('data-src'));
             }
-            // Cancel the default action to avoid it being handled twice??
-            //event.preventDefault();
-        }, true);
-    
-    function nextSlide() {
-        position = Number(position) + 1;
-        sliderTranslate();
-        imageLoad();
-        sliderButtons();
-        activeSlide();
-    }
-    
-    
-    function prevSlide() {
-        position = Number(position) - 1;
-        sliderTranslate();
-        sliderButtons();
-        activeSlide();
-    }
-    
-    function getSingleSlide() {
-        // Position aus dem data-Atrribut des angeklickten Buttons lesen
-        position = Number(this.getAttribute('data-slideNumber'));
-        sliderTranslate();
-        imageLoad();
-        sliderButtons();
-        activeSlide();
-          
-    }
-    
-    function sliderTranslate() {
-        // Position des Bildes
-        var translate = position / sliderLength  * 100;
-        slide.style["transform"] = 'translate3d(-' + translate + '%, 0, 0)';
-    }
-    
-    function imageLoad() {
-             // nächstes Bild laden, bis das vorletzte Bild angezeigt wird, Beginnt erst nach dem Aufruf von Bild 2 - das ist bereits geladen
-            if (position >= 1 && position <= sliderLength - 2 ) {
-            sliderImg[position + 1].setAttribute('srcset',sliderImg[position + 1].getAttribute('data-srcset'));
-            sliderImg[position + 1].setAttribute('src',sliderImg[position + 1].getAttribute('data-src'));
+        }    
+
+
+        function imageLoad() {
+                 // nächstes Bild laden, bis das vorletzte Bild angezeigt wird, Beginnt erst nach dem Aufruf von Bild 2 - das ist bereits geladen
+                if (position >= 1 && position <= sliderLength - 2 ) {
+                sliderImg[position + 1].setAttribute('srcset',sliderImg[position + 1].getAttribute('data-srcset'));
+                sliderImg[position + 1].setAttribute('src',sliderImg[position + 1].getAttribute('data-src'));
+                sliderImg[position + 1].setAttribute('data-loaded','true');    
+
+            }
+
+             if (sliderImg[position].getAttribute('data-loaded') != 'true' ) {
+                    imageThisLoad();
+            }
+
+        }    
+
+
+        function sliderButtons() {
+            // Anzeige der Buttons verbergen, wenn erste bzw. Letzte Position erreicht ist
+            if (position == sliderLength - 1) {
+                nextSlideButton.style.display ="none";
+            }
+            else  {
+                nextSlideButton.style.display ="inherit";
+            }
+            if (position == 0) {
+                prevSlideButton.style.display ="none";
+            }
+            else  {
+                prevSlideButton.style.display ="inherit";
+            }
         }
-    }    
-    
-    
-    function sliderButtons() {
-        // Anzeige der Buttons verbergen, wenn erste bzw. Letzte Position erreicht ist
-        if (position == sliderLength - 1) {
-            nextSlideButton.style.display ="none";
+
+
+        function activeSlide() {
+             for (var i = 0; i < sliderLength; i++) {
+                 // class für Aktiven Button
+                 singleSlideButton[i].classList.remove("singleSlideActive");
+             }
+            // alle aktiven class an anderen Buttons löschen
+            singleSlideButton[position].className += ' singleSlideActive';
         }
-        else  {
-            nextSlideButton.style.display ="inherit";
-        }
-        if (position == 0) {
-            prevSlideButton.style.display ="none";
-        }
-        else  {
-            prevSlideButton.style.display ="inherit";
-        }
-    }
-    
-    
-    function activeSlide() {
-         for (var i = 0; i < sliderLength; i++) {
-             // class für Aktiven Button
-             singleSlideButton[i].classList.remove("singleSlideActive");
-         }
-        // alle aktiven class an anderen Buttons löschen
-        singleSlideButton[position].className += ' singleSlideActive';
     }
 })();    
     

@@ -1,0 +1,18 @@
+[[pdoMenu? 
+&parents=`0`
+&hideSubMenus=`1`
+&displayStart=`1` 
+&removeNewLines=`1`
+&level=`2`
+&cacheResults=`1`
+&cacheTime=`0`  
+&tplOuter=`@INLINE <button id="navtoggle" aria-live="polite"><span>Menü zeigen</span></button><nav id="nav1" aria-label="Hauptnavigation"><ul id="n11">[[+wf.wrapper]]</ul></nav>` 
+&tplInner=`@INLINE  <ul id="n12">[[+wf.wrapper]]</ul>`
+&tplRow=`@INLINE <li [[+wf.classes]]><a class="n_a" href="[[+wf.link]]">[[+wf.linktext]]</a>[[+wf.wrapper]]</li>`
+&tplParentRow=`@INLINE <li [[+wf.classes]]><a class="n_a" href="[[+wf.link]]">[[+wf.linktext]]</a>[[+wf.wrapper]]</li>`
+&tplParentRowActive=`@INLINE <li><a class="n_a" href="[[+wf.link]]">[[+wf.linktext]]</a>[[+wf.wrapper]]</li>` 
+&tplHere=`@INLINE <li [[+wf.classes]]><span class="n_s" aria-current="page">[[+wf.linktext]]</span>[[+wf.wrapper]]</li>`
+&hereClass=`nav1-aktiv`
+&firstClass=``
+&lastClass=``
+]]
