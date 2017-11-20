@@ -25,6 +25,7 @@
 - If
 - pdoTools
 - phpThumbOf
+- pThumb
 - QuickCrumbs
 - translit **Ersetzen: components/translit/model/…/german.php**
 - Wayfinder
@@ -59,6 +60,11 @@
 - cache_db = Ja
 - allow_multiple_emails = Nein
 - upload_files = pdf,jpg,jpeg,png,svg,svgz,gif
+- pthumb.ptcache_location = nach Belieben
+- phpthumb_cache_maxage = 100
+- pthumb.use_ptcache = Ja
+- send_poweredby_header = Nein
+
 
 - Inhalt -> Inhalstypen -> .html löschen
 
