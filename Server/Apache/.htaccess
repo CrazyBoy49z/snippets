@@ -1,4 +1,4 @@
-###### Version 2.0 beta14
+###### Version 2.22.6
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -6,13 +6,13 @@
 
 #### BESUCHER SPERREN
 ## SET! nach TLD 
-    RewriteCond %{HTTP_REFERER} ^https?://[^/]+\.(br|by|in|kz|no|ru|pk|ro|tr|ua)/? [NC]
-    RewriteRule .* - [F,L]
+    #RewriteCond %{HTTP_REFERER} ^https?://[^/]+\.(br|by|in|kz|no|ru|pk|ro|tr|ua)/? [NC]
+    #RewriteRule .* - [F,L]
 ## leerer User-Agent
 	RewriteCond %{HTTP_USER_AGENT} ^$ [NC]
 	RewriteRule .* - [F] 	
 ## nach Referer
-    RewriteCond %{HTTP_REFERER} (1-free-share-buttons|aviav|offbyone|semalt|todaperfeita|trainersuchmaschine|vebidoo|wp-login.php) [NC,OR]
+    RewriteCond %{HTTP_REFERER} (1-free-share-buttons|aviav|offbyone|semalt|todaperfeita|trikaladay|trainersuchmaschine|vebidoo|wp-login.php) [NC,OR]
     RewriteCond %{HTTP_REFERER} ([a-z0-9]{2000,}) [NC]
     RewriteRule .* - [F,L]
 ## nach Request-Methoden
@@ -21,30 +21,26 @@
 ## nach User-Agent
     SetEnvIfNoCase User-Agent ([a-z0-9]{2000,}) bad_bot
     SetEnvIfNoCase User-Agent (\{) bad_bot
-    SetEnvIfNoCase User-Agent (backlinkcrawler|baiduspider|linkdexbot|scrapyproject|seokicks-robot|sophora) bad_bot
-    SetEnvIfNoCase User-Agent (domainappender) bad_bot
-    SetEnvIfNoCase User-Agent (seoscanners) bad_bot
-    SetEnvIfNoCase User-Agent (kraken) bad_bot
-	SetEnvIfNoCase User-Agent (binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|kmccrew|loader|miner|nikto|nutch|planetwork|postrank|purebot|pycurl|python|seekerspider|siclab|skygrid|sqlmap|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
-## nach IP-Adressen SET!
-    <Limit GET HEAD OPTIONS POST PUT>
-        order deny,allow
-        allow from all
-        # Indien
-        deny from 139.59.0.0/24
-        # Russland
-        deny from  89.204.0.0/24
+	SetEnvIfNoCase User-Agent (backlinkcrawler|binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|domainappender|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|implisensebot|kraken|kmccrew|linkdexbot|loader|mindupbot|miner|mixrankbot|netestate|nikto|nutch|planetwork|postrank|purebot|pycurl|python|scrapy|scrapyproject|seekerspider|seokicks-robot|seoscanners|shopcrawler|siclab|skygrid|sqlmap|sophora|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
+## nach IP-Adressen SET! Quelle: https://perishablepress.com/worst-ips-2016/
+    <Limit GET POST PUT>
+        Order Allow,Deny
+        Allow from All
+        Deny from 5.9.136.67
+        Deny from 79.155.74.231
+        Deny from 195.154.225.19
+        Deny from 198.27.101.168
     </Limit>
 
 #### KRITISCHE DATEIEN BLOCKIEREN 
-## (.htaccess, *.inc.php, Google-Bestätigung)
-    <FilesMatch "(^.*\.(htaccess)|(\.(?:inc.php)$)|(^google[0-9a-zA-Z]+.html$))">
+## (.htaccess, Google-Bestätigung)
+    <FilesMatch "(^.*\.(htaccess)|(^google[0-9a-zA-Z]+.html$))">
         order allow,deny
         deny from all
     </FilesMatch>
 ## weitere Dateiendungen
-    RewriteCond %{REQUEST_URI} \.(7z|aspx?|bash|bak?|bz2|cfg|cgi|dist|dll|exe|fla|git|hg|ini|jsp|log|mdb|old|out|rar|rdf|sql|sik|sh|svn|swp|tar|tlp)$ [NC]
-	RewriteRule .* - [F,L]    
+    #RewriteCond %{REQUEST_URI} \.(7z|aspx?|bash|bak?|bz2|bzip2|cfg|cgi|dist|dll|exe|fla|git|gz|gzip|hg|ini|jsp|log|mdb|old|out|rar|rdf|sql|sik|sh|svn|swp|tgz|tar|tlp)$ [NC]
+	#RewriteRule .* - [F,L]    
 
 
 #### ANFRAGEN BLOCKIEREN
@@ -58,7 +54,7 @@
 ## TODO! Blockade von PHP in zusätzlich eingerichteten Verzeichnissen
     #RewriteCond %{REQUEST_URI} ([client\/](css|scripts|grafik|fonts))*\.php [NC]
     #RewriteRule .* - [F,L]    
-    RewriteCond %{REQUEST_URI}  (oaklayer|phpmyadmin|raybaner|revslider|test-for-404-page|tel:+) [NC,OR]
+    RewriteCond %{REQUEST_URI}  (oaklayer|phpmyadmin|ranger|raybaner|revslider|test-for-404-page|tel:+) [NC,OR]
     RewriteCond %{REQUEST_URI}  (wordpress|([wp-](admin|config|content|includes|login))|wpcontent) [NC,OR]
     RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
 	RewriteCond %{QUERY_STRING} (127\.0\.0\.1) [NC,OR]
@@ -69,14 +65,16 @@
 	RewriteCond %{QUERY_STRING} (GLOBALS|REQUEST)(=|\[|%) [NC,OR]
 	RewriteCond %{QUERY_STRING} (<|%3C)(.*)script(.*)(>|%3) [NC,OR]
 ## SET! Folgende Regel für MODx Evo eventuell auskommentieren, verhindert Öffnen des Verzeichnisbaums
-	#RewriteCond %{QUERY_STRING} (\\|\.\.\.|\.\./|~|`|<|>|\|) [NC,OR]
-	RewriteCond %{QUERY_STRING} (boot\.ini|etc/passwd|self/environ) [NC,OR]
+	#RewriteCond %{QUERY_STRING} (\\|\.\.\.|\.\./|~|`|<|>|\|) [NC,OR]RewriteCond %{QUERY_STRING} (boot\.ini|etc/passwd|self/environ) [NC,OR]
 	RewriteCond %{QUERY_STRING} (thumbs?(_editor|open)?|tim(thumb)?)\.php [NC,OR]
 	RewriteCond %{QUERY_STRING} (\'|\")(.*)(drop|insert|md5|select|union) [NC,OR]
-    RewriteCond %{QUERY_STRING} (=\\\'|=\\%27|/\\\'/?)\. [NC,OR]
+	RewriteCond %{QUERY_STRING} (=\\\'|=\\%27|/\\\'/?)\. [NC,OR]
     RewriteCond %{QUERY_STRING} (?i)/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$ [NC,OR]
 	RewriteCond %{QUERY_STRING} (?i)(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\") [NC,OR]
-	RewriteCond %{QUERY_STRING} (?i)(~|`|<|>|:|,|\\|\s|\{|\}|\[|\]) [NC,OR]
+## SET! Folgende REgel für MODx Evo auskommentieren, in Revo löschen	
+    #RewriteCond %{QUERY_STRING} (?i)(~|`|<|>|:|,|\\|\s|\{|\}|\[|\]) [NC,OR]
+## SET! Folgende REgel für MODx REvo auskommentieren, in Evo löschen	
+RewriteCond %{QUERY_STRING} (?i)(~|`|<|>|:|\\|\s|\{|\}|\[|\]) [NC,OR]
 ## SET! Kann eventuell den Datei-Manager blockieren
     #RewriteCond %{QUERY_STRING} (?i)(%) [NC,OR]
 ## SET! Kann eventuell den Anforderung eines neuen PW im webloginpe blockieren
@@ -93,7 +91,6 @@
 ## Datenbankabfragen
     RewriteCond %{QUERY_STRING} (NULL(.*)NULL(.*)NULL|INFORMATION_SCHEMA\.CHARACTER_SETS|SELECT(.*)CASE(.*)WHEN|AND(.*)AND(.*)oNnL|CONVERT(.*)INT(.*)SELECT|SELECT(.*)SLEEP|WAITFOR(.*)DELAY|DBMS_PIPE\.RECEIVE_MESSAGE) [NC]
     RewriteRule .* - [F,L]
-
 
 #### BAD BOTS STOPPEN
 ## Apache < 2.3
@@ -135,15 +132,10 @@
         ExpiresByType text/html "access plus 5 minutes"
 
         ExpiresByType application/javascript "access plus 1 year"
-        ExpiresByType application/x-javascript "access plus 1 year"
-        ExpiresByType text/javascript "access plus 1 year"
 
         ExpiresByType application/manifest+json "access plus 1 year"
-        ExpiresByType application/x-web-app-manifest+json "access plus 0 seconds"
-        ExpiresByType text/cache-manifest "access plus 0 seconds"
-
+        
         ExpiresByType audio/ogg "access plus 1 year"
-        ExpiresByType image/bmp "access plus 1 year"
         ExpiresByType image/gif "access plus 1 year"
         ExpiresByType image/jpeg "access plus 1 year"
         ExpiresByType image/png "access plus 1 year"
@@ -152,32 +144,30 @@
         ExpiresByType video/ogg "access plus 1 year"
         ExpiresByType video/webm "access plus 1 year"
 
-        ExpiresByType application/x-font-ttf "access plus 1 year"
+        ExpiresByType font/truetype "access plus 1 year"
         ExpiresByType application/font-woff "access plus 1 year"
         ExpiresByType font/woff2    "access plus 1 year"
         
         ExpiresByType text/x-cross-domain-policy "access plus 1 week" 
 
 ## alte Browser
-        BrowserMatch "MSIE" brokenvary=1
-        BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
-        BrowserMatch "Opera" !brokenvary
-        SetEnvIf brokenvary 1 force-no-vary
+        #BrowserMatch "MSIE" brokenvary=1
+        #BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
+        #BrowserMatch "Opera" !brokenvary
+        #SetEnvIf brokenvary 1 force-no-vary
     </IfModule>
 
 
 #### MIME-Tpyen
 
     <IfModule mod_mime.c>
-        DefaultType text/html
-
+       
         AddType application/pdf 					pdf
         AddType text/css 							css
-        AddType text/javascript 					js
         AddType application/javascript          	js
         AddType application/json                	json
 
-        AddType image/jpeg 							jpg
+        AddType image/jpeg 							jpg jpeg
         AddType image/png 							png
         AddType image/gif 							gif
         AddType image/x-icon 						ico
@@ -191,11 +181,9 @@
 
         AddType audio/mpeg 							mp3
         AddType audio/mp4 							m4a mp4 mpa                                                           
-        AddType audio/ogg 							ogg
-        AddType audio/ogg 							oga
+        AddType audio/ogg 							ogg oga
         AddType audio/webm 							webma
-        AddType audio/wav 							wav
-
+     
         AddType video/ogg 							ogv
         AddType video/ogg 							ogg
         AddType video/mp4 							mp4
@@ -205,14 +193,11 @@
         AddType text/calendar                       ics  
 
         AddType application/xml                     rss atom xml rdf
-        AddType application/x-chrome-extension      crx
-        AddType application/x-opera-extension       oex
-        AddType application/x-xpinstall             xpi
-        AddType application/octet-stream            gpx
-        AddType application/octet-stream            kml
-        AddType application/octet-stream            kmz 
-        AddType text/x-vcard                        vcf
+        AddType text/vcard                          vcf
         AddType text/vtt                            vtt
+
+        AddType application/vnd.google-earth.kml+xml kml
+        AddType application/gpx+xml                 gpx
     </IfModule>
 
 
@@ -231,18 +216,23 @@
         Header set X-Frame-Options "SAMEORIGIN"
         Header unset X-Powered-By
         Header set X-XSS-Protection "1; mode=block"
-        Header set X-UA-Compatible "IE=edge"
-        <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+        Header always edit Set-Cookie (.*) "$1; HTTPOnly"
+## SET! Nur bei http verwenden, dann zeile darüber auskommentieren		
+		#Header always edit Set-Cookie (.*) "$1; HTTPOnly; Secure"
+        <FilesMatch "\.(appcache|css|f4[abpv]|flv|gif|ico|jpe?g|js|json(ld)?|m4[av]|manifest|mp4|og[agv]|pdf|png|rdf|rss|svgz?|swf|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xml|xpi)$">
             Header unset Content-Security-Policy
             Header unset X-Frame-Options
-            Header unset X-UA-Compatible
             Header unset X-XSS-Protection
+            Header unset Referrer-Policy
         </FilesMatch>
         Header set Connection keep-alive
         Header unset ETag
         Header set Cache-Control "private, no-transform"
-        <FilesMatch "\.(css|gif|jpe?g|pdf|png|svg|ttf|woff|woff2)$">
-            Header set Cache-Control "public, private"
+        <FilesMatch "\.(gif|jpe?g|png|svg)$">
+            Header set Cache-Control "public, private, max-age=31536000, immutable"
+        </FilesMatch>
+        <FilesMatch "\.(css|js|woff|woff2)$">
+            Header set Cache-Control "public, private, max-age=31536000, immutable"
         </FilesMatch>
     </IfModule>
 
@@ -299,6 +289,11 @@ Options -Indexes -FollowSymLinks -Includes
 ##### DOMAIN ===========
 
 #### HEADER
+
+    <IfModule mod_headers.c>
+## SET! 
+        #Header set Content-Security-Policy: 
+    </IfModule>
 
 ### UMLEITUNGEN
     Options +FollowSymlinks +SymLinksIfOwnerMatch
