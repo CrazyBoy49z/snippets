@@ -24,7 +24,7 @@
 - getResourceField
 - If
 - pdoTools
-- phpThumbOf
+- pThumb statt phpThumbOf
 - pThumb
 - QuickCrumbs
 - translit **Ersetzen: components/translit/model/…/german.php**
