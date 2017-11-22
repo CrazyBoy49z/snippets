@@ -44,7 +44,7 @@
 - friendly_alias_strip_element_tags = ja
 - friendly_urls = ja
 - use_alias_path = ja
-- manager_html5_cache = ja
+- manager_html5_cache = ja ??
 - resource_tree_node_name_fallback = longtitle
 - manager_week_start = 1
 - site_name = Seitenname
@@ -60,7 +60,10 @@
 - cache_db = Ja
 - allow_multiple_emails = Nein
 - upload_files = pdf,jpg,jpeg,png,svg,svgz,gif
-- pthumb.ptcache_location = nach Belieben
+- upload_flash = 
+- upload_images = jpg,jpeg,png,svg,gif
+- upload_media = 
+- pthumb.ptcache_location = nach Belieben z.B. assets/images
 - phpthumb_cache_maxage = 100
 - pthumb.use_ptcache = Ja
 - send_poweredby_header = Nein
@@ -70,38 +73,24 @@
 
 ### Templates
 
-#### Standard
+* Standard
 
-    <!doctype html>
-    <html>
-    [[$head]]
-    <body>
-    [[$header]]
-    [[$navi]]
-    <main id="main">
-    [[$artikel]] 
-    </main>
-    </body>
-    [[$scripts]]
-    </html>
-
-
+### Snippets
 	
-Snippet incCSS
+* incCSS
 
-$path_absolute = $modx->config["base_path"].''.$path.''.$file;
-$path_parts = pathinfo($path_absolute);
-$path = $path.''.$path_parts['filename'].'.'.filemtime($path_absolute). '.'.$path_parts['extension'];
-$urlpath = $modx->config['site_url'] . $path;
-echo (!isset($_COOKIE['css'])) ? '<style>' . file_get_contents($urlpath) . '</style><script>document.cookie="css=1";</script>' : '<link href="' . $path . '" rel="stylesheet" media="screen">';	
+### Chunk
 
-Chunk: head
+* head
+* header
+* nav1
 
-	<head><title>Bauernverband Anhalt - [[*pagetitle]]</title><base href="http://neu.bauernverband-anhalt.de/">[[!incCSS? &path=`client/css/` &file=`1.dev.css`]]<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="format-detection" content="telephone=no,address=no"><meta name="robots" content="noodp"></head>
+### Plugins 
 
-Chunk: header
+* markSmart - /core/extras hochladen
 
-<header id="header"><h1><a id="header_a" href="/" rel="index" hreflang="de-de"><img id="header_img" src="/client/grafik/logo.png" width="100" height="100" alt=""><span class="vs">Revo-Test</span></a></h1></header>  
+
+------
 
 Chunk: scripts
 

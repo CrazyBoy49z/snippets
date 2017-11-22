@@ -11,6 +11,9 @@
 * [(system_setting)] -> [[++SettingName]]
 * nicht vorhanden -> [[%LanguageStringKey]]
 
+
+* [(site_url)] -> [[++site_url]]
+
 ### Caching
 
 * [!Snippet!] 	[[!Snippet]]
