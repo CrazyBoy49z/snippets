@@ -1,0 +1,8 @@
+<article>
+    <h3><a href="/[[~[[+id]]?]]">[[+longtitle]]</a></h3>
+    [[!If? &subject=`[[+vorschaubild]]` &operator=`!=` &operand=`` 
+    &then=`
+    <img srcset="[[phpthumbof? &input=`[[+vorschaubild]]` &options=`w=150&h=150&q=73`]], [[phpthumbof? &input=`[[+vorschaubild]]` &options=`w=300&h=300&q=68`]] 2x, [[phpthumbof? &input=`[[+vorschaubild]]` &options=`w=400&h=400&q=75`]] 3x" src="[[phpthumbof? &input=`[[+vorschaubild]]` &options=`w=150&h=150&q=73`]]" class="vorschaubild thumbload" alt="" height="150" width="150">
+    `]]
+    <markdown>[[[[+introtext:isnot=``:then=`+introtext`:else=`+content`]]]] <a href="/[[~[[+id]]?]]" class="mehr">mehr</a></markdown>
+</article>

@@ -75,19 +75,43 @@
 
 * Standard
 
+### TVs
+
+* vorschaubild
+
 ### Snippets
 	
 * incCSS
+* published
 
 ### Chunk
 
 * head
 * header
 * nav1
+* pdoTeaser
+* tplTeaser
+* pdoNewsTeaserArchiv
+* tplNewsTeaserArchiv
 
 ### Plugins 
 
 * markSmart - /core/extras hochladen
+
+# ManagerAnapssung
+
+## für Standard
+
+dekativeren:
+
+* uri_override
+* link_attributes
+
+* modx-page-settings-left
+* modx-page-settings-right-box-left
+* modx-page-settings-right-box-right
+* modx-panel-resource-tv
+* modx-resource-access-permissions
 
 
 ------

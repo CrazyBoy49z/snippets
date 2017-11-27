@@ -1,0 +1,18 @@
+[[!pdoPage?
+    &tpl=`tplNewsTeaserArchiv`
+    &pageLimit=`3`
+    &limit=`5`
+    &offset=`0`
+    &includeContent=`1`
+    &parents=`[[*id]]`
+    &select=`{"modResource":"id,longtitle,introtext,content,publishedon,pubdate"}`
+    &includeTVList=`vorschaubild` &prepareTVList=`1`&processTVList=`1` &tvPrefix=`` 
+    &sortby=`{"publishedon":"DESC"}`
+    &tplPageWrapper=`@INLINE <ul>[[+prev]] [[+next]]</ul>`
+    &tplPagePrev=`@INLINE <li class="control"><a href="[[+href]]">neuere Artikel</a></li>`
+    &tplPageNext=`@INLINE <li class="control"><a href="[[+href]]">ältere Artikel</a></li>`
+    &tplPageNextEmpty=``
+    &tplPagePrevEmpty=``
+    &tplPageFirst=``
+]]
+<nav id="archiv" aria-label="Artikelarchiv durchstöbern">[[!getOptions:gte=`2`:then=`[[+page.nav]]`:else=`<!--p><a href="/[[~[[*id]]?]]?page=2">ältere Artikel</a></p-->`? &options=`page`]]</nav>
