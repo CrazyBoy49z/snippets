@@ -1,0 +1,9 @@
+AuthType basic
+AuthName "Sorry, kein Zugang. Diese Website muss repariert werden"
+AuthUserFile /home/path/.htpasswd
+AuthGroupFile /dev/null
+Require valid-user
+Order Deny,Allow
+Deny from all
+Allow from googlebot.com
+Satisfy Any
