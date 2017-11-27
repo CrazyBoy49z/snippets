@@ -1,4 +1,4 @@
-###### Version 2.22.6
+###### Version 2.22.7
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -71,10 +71,9 @@
 	RewriteCond %{QUERY_STRING} (=\\\'|=\\%27|/\\\'/?)\. [NC,OR]
     RewriteCond %{QUERY_STRING} (?i)/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$ [NC,OR]
 	RewriteCond %{QUERY_STRING} (?i)(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\") [NC,OR]
-## SET! Folgende REgel für MODx Evo auskommentieren, in Revo löschen	
+## SET! Folgende Regel NUR FÜR MODx EVO, in Revo auskommentieren	
     #RewriteCond %{QUERY_STRING} (?i)(~|`|<|>|:|,|\\|\s|\{|\}|\[|\]) [NC,OR]
-## SET! Folgende REgel für MODx REvo auskommentieren, in Evo löschen	
-RewriteCond %{QUERY_STRING} (?i)(~|`|<|>|:|\\|\s|\{|\}|\[|\]) [NC,OR]
+## TODO! Vorherige Regel an MODx Revo anpassen
 ## SET! Kann eventuell den Datei-Manager blockieren
     #RewriteCond %{QUERY_STRING} (?i)(%) [NC,OR]
 ## SET! Kann eventuell den Anforderung eines neuen PW im webloginpe blockieren
