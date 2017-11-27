@@ -1,0 +1,1 @@
+    /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/startosinstall --converttoapfs NO
