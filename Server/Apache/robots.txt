@@ -1,4 +1,4 @@
-Version 1.0.6
+Version 1.0.7
 
 User-agent: Yandex
 Crawl-delay: 15
@@ -67,6 +67,9 @@ User-agent: linko
 Disallow: /
 
 User-agent: LinkWalker
+Disallow: /
+
+User-agent: ltx71 - (http://ltx71.com/)
 Disallow: /
 
 User-agent: metajobbot
