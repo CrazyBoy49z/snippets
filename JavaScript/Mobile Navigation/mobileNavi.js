@@ -1,23 +1,33 @@
-<script>
-var navi = document.getElementById("nav1"),
-    ntoggle = document.getElementById("navtoggle"),
+function addOverlay() {
+        var overlay = document.createElement("div");
+        overlay.id = "overlay";
+        document.body.appendChild(overlay);
+    }
+
+function removeOverlay() {
+    overlay = document.getElementById("overlay"),
+    overlay.parentNode.removeChild(overlay)
+} 
+
+
+var navi=document.getElementById("nav1"),
+	ntoggle=document.getElementById("navtoggle"),
     nspan = document.getElementById("navtoggle_span");
-
-function showM(e) {
-    // bei Bedarf addOverlay();
-    navi.className += "show";
-    ntoggle.removeEventListener("click", showM);
-    nspan.textContent = "weniger";
-    ntoggle.addEventListener("click", hideM)
+function showM(e){
+	navi.className+="show";
+    ntoggle.className+="show";
+	addOverlay();
+    nspan.textContent = "Menü verbergen";
+	ntoggle.removeEventListener("click",showM);
+	ntoggle.addEventListener("click",hideM)
+}
+function hideM(e){
+	navi.classList.remove("show");
+        ntoggle.classList.remove("show");
+	removeOverlay();
+    nspan.textContent = "Menü zeigen";
+	ntoggle.removeEventListener("click",hideM)
+	ntoggle.addEventListener("click",showM);
 }
 
-function hideM(e) {
-    // bei Bedarf removeOverlay();
-    navi.classList.remove("show");
-    nspan.textContent = "mehr";
-    ntoggle.removeEventListener("click", hideM);
-    ntoggle.addEventListener("click", showM);
-}
-
-ntoggle.addEventListener("click", showM);
-</script>
+ntoggle.addEventListener("click",showM);
