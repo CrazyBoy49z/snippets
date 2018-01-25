@@ -67,6 +67,7 @@
 - phpthumb_cache_maxage = 100
 - pthumb.use_ptcache = Ja
 - send_poweredby_header = Nein
+- locale.php installieren und locale im Core korrekt eintragen
 
 
 - Inhalt -> Inhalstypen -> .html löschen
@@ -113,6 +114,10 @@ dekativeren:
 * modx-panel-resource-tv
 * modx-resource-access-permissions
 
+
+Template-Auswahl beschränken
+
+https://forums.modx.com/thread/?thread=45299&page=2
 
 ------
 
