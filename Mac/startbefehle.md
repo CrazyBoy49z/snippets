@@ -24,4 +24,11 @@
 
 ## Probleme beim Aufwachen
 
+
+reboot into Recovery mode
+open terminal
+type: csrutil disable
+reboot
+try to remove the image again with SIP disabled
+
 * `sudo rm /var/vm/sleepimage` löscht Hibernation-Datei
