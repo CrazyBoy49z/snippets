@@ -93,6 +93,7 @@
     -webkit-transition: opacity 1s ease;
     -moz-transition: opacity 1s ease;
     transition: opacity 1s ease;
+    overscroll-behavior: contain;
 }
 
 #albisNext:before, .albisCap_p, .albisFig, .albisFig:before {
