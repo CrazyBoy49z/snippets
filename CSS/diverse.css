@@ -66,3 +66,20 @@ font-family: -apple-system,
 /* http://codepen.io/AmeliaBR/pen/vmZbpR */
 linear-gradient(black, 30%, transparent)
 linear-gradient(black, 30%, hsla(0, 0%, 0%, 0.5) 50%, 70%, transparent);
+
+
+/* responsives Bild */
+
+#outer {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+#inner {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: /*3:2 = 66%; 16:9 = 56%*/;
+    background-repeat: no-repeat;
+}
