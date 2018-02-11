@@ -1,4 +1,4 @@
-Version 1.0.7
+Version 1.0.8
 
 User-agent: Yandex
 Crawl-delay: 15
@@ -45,7 +45,13 @@ Disallow: /
 User-agent: Fetch
 Disallow: /
 
+User-agent: GarlikCrawler
+Disallow: /
+
 User-agent: HTTrack
+Disallow: /
+
+User-agent: ImplisenseBot
 Disallow: /
 
 User-agent: IsraBot
