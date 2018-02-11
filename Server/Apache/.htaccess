@@ -1,4 +1,4 @@
-###### Version 2.22.8
+###### Version 2.23.0
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -132,20 +132,17 @@
         ExpiresByType text/xml "access plus 0 seconds"
         ExpiresByType text/calendar "access plus 6 hours"
 
-        ExpiresByType image/vnd.microsoft.icon "access plus 1 week"
-        ExpiresByType image/x-icon "access plus 1 week"
-
         ExpiresByType text/html "access plus 5 minutes"
 
         ExpiresByType application/javascript "access plus 1 year"
 
         ExpiresByType application/manifest+json "access plus 1 year"
         
-        ExpiresByType audio/ogg "access plus 1 year"
         ExpiresByType image/gif "access plus 1 year"
         ExpiresByType image/jpeg "access plus 1 year"
         ExpiresByType image/png "access plus 1 year"
         ExpiresByType image/svg+xml "access plus 1 year"
+        ExpiresByType image/x-icon "access plus 1 year"
         ExpiresByType video/mp4 "access plus 1 year"
         ExpiresByType video/ogg "access plus 1 year"
         ExpiresByType video/webm "access plus 1 year"
@@ -188,12 +185,9 @@
         AddType audio/mpeg 							mp3
         AddType audio/mp4 							m4a mp4 mpa                                                           
         AddType audio/ogg 							ogg oga
-        AddType audio/webm 							webma
      
-        AddType video/ogg 							ogv
-        AddType video/ogg 							ogg
+        AddType video/ogg 							ogv ogg
         AddType video/mp4 							mp4
-        AddType video/webm 							webm
         AddType application/x-shockwave-flash   	swf
 
         AddType text/calendar                       ics  
@@ -210,7 +204,7 @@
 #### KOMPRIMIERUNG
 
     <IfModule mod_deflate.c>
-        AddOutputFilterByType DEFLATE text/html text/css text/javascript text/calendar application/javascript application/json application/xml  image/svg+xml
+        AddOutputFilterByType DEFLATE text/html text/css text/javascript text/calendar application/javascript application/json application/xml image/x-icon image/svg+xml
     </IfModule>
 
 
@@ -277,10 +271,6 @@ Options -Indexes -FollowSymLinks -Includes
 ## SET! Größe von Upload-Files begrenzen    
     php_value upload_max_filesize 2M
 
-## Veraltet! Ab PHP 5.4 überflüssig.
-    #php_flag magic_quotes_gpc off
-    #php_value date.timezone Europe/Berlin
-
 ## Zugriff auf externe Daten
     php_value allow_url_fopen Off
     php_value allow_url_include Off
@@ -295,11 +285,6 @@ Options -Indexes -FollowSymLinks -Includes
 ##### DOMAIN ===========
 
 #### HEADER
-
-    <IfModule mod_headers.c>
-## SET! 
-        #Header set Content-Security-Policy: 
-    </IfModule>
 
 ### UMLEITUNGEN
     Options +FollowSymlinks +SymLinksIfOwnerMatch
