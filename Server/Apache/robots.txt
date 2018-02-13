@@ -1,4 +1,4 @@
-Version 1.0.8
+Version 1.0.9
 
 User-agent: Yandex
 Crawl-delay: 15
@@ -25,6 +25,9 @@ User-agent: DittoSpyder
 Disallow: /
 
 User-agent: DOC
+Disallow: /
+
+User-agent: DomainCrawler
 Disallow: /
 
 User-agent: Download Ninja
