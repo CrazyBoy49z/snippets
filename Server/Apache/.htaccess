@@ -1,4 +1,4 @@
-###### Version 2.23.0
+###### Version 2.23.1
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -62,7 +62,8 @@
     #RewriteCond %{REQUEST_URI} ([client\/](css|scripts|grafik|fonts))*\.php [NC]
     #RewriteRule .* - [F,L]    
     RewriteCond %{REQUEST_URI}  (oaklayer|phpmyadmin|ranger|raybaner|revslider|test-for-404-page|tel:+) [NC,OR]
-    RewriteCond %{REQUEST_URI}  (wordpress|([wp-](admin|config|content|includes|login))|wpcontent) [NC,OR]
+## wp-content für Honigtop ev. entfernen    
+    RewriteCond %{REQUEST_URI}  (wordpress|([wp-](admin|config|includes|login))|wpcontent) [NC,OR]
     RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
 	RewriteCond %{QUERY_STRING} (127\.0\.0\.1) [NC,OR]
 	RewriteCond %{QUERY_STRING} ([a-z0-9]{2000,}) [NC,OR]
@@ -89,8 +90,10 @@
 	RewriteCond %{QUERY_STRING} (?i)(&pws=0|_vti_|\(null\)|\{\$itemURL\}|echo(.*)kae|etc/passwd|eval\(|self/environ) [NC]
     RewriteRule .* - [F,L]
 ## PHP-DATEIEN gezielt blockieren
-    RewriteCond %{REQUEST_URI} (admin-post|css-min|etchk|etpost|etreply|glnoa|green)\.php [NC,OR]
-    RewriteCond %{REQUEST_URI} (img|map|master|mobiquo|minify|phpinfo|red|register|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|ui-elements|up|webshell|xml81|xmlrpc)\.php [NC,OR]
+    RewriteCond %{REQUEST_URI} (admin-post|content|css-min|dumper|etchk|etpost|etreply|glnoa|green)\.php [NC,OR]
+    RewriteCond %{REQUEST_URI} (img|license|map|master|mobiquo|minify|phpinfo|red|register|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|ui-elements|up|webshell|xml81|xmlrpc)\.php [NC,OR]
+## TXT blockieren
+    RewriteCond %{REQUEST_URI} (ads)\.txt [NC,OR]
 ## Phantasie-Endung blockieren  
     RewriteCond %{REQUEST_URI} \.(nhtm|phpx) [NC]
     RewriteRule .* - [F,L]
