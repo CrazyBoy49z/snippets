@@ -1,4 +1,4 @@
-###### Version 2.23.1
+###### Version 2.23.2
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -21,7 +21,7 @@
 ## nach User-Agent
     SetEnvIfNoCase User-Agent ([a-z0-9]{2000,}) bad_bot
     SetEnvIfNoCase User-Agent (\{) bad_bot
-	SetEnvIfNoCase User-Agent (backlinkcrawler|binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|domainappender|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|implisensebot|kraken|kmccrew|linkdexbot|loader|mindupbot|miner|mixrankbot|netestate|nikto|nutch|planetwork|postrank|purebot|pycurl|python|scrapy|scrapyproject|seekerspider|seokicks-robot|seoscanners|shopcrawler|siclab|skygrid|sqlmap|sophora|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
+	SetEnvIfNoCase User-Agent (backlinkcrawler|binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|domainappender|dotbot|extract|feedfinder|flicky|guzzlehttp|g00g1e|harvest|heritrix|httrack|implisensebot|kraken|kmccrew|linkdexbot|loader|mindupbot|miner|mixrankbot|netestate|nikto|nutch|planetwork|postrank|purebot|pycurl|python|scrapy|scrapyproject|seekerspider|seokicks-robot|seoscanners|shopcrawler|siclab|skygrid|sqlmap|sophora|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
 ## nach IP-Adressen SET! Quelle: https://perishablepress.com/worst-ips-2016/
     <Limit GET POST PUT>
         Order Allow,Deny
