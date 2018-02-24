@@ -1,4 +1,4 @@
-Version 1.0.10
+Version 1.0.11
 
 User-agent: Yandex
 Crawl-delay: 15
@@ -16,6 +16,9 @@ User-agent: AhrefsBot
 Disallow: /
 
 User-agent: BacklinkCrawler
+Disallow: /
+
+User-agent: Barkrowler
 Disallow: /
 
 User-agent: BUbiNG
@@ -47,6 +50,7 @@ Disallow: /
 
 User-agent: Fasterfox
 Disallow: /
+
 
 User-agent: Fetch
 Disallow: /
