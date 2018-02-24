@@ -1,4 +1,4 @@
-###### Version 2.23.3
+###### Version 2.23.4
 ##### GLOBAL ===========
 
 #### NIE LÖSCHEN
@@ -37,6 +37,8 @@
         allow from all
         # TelemaxX 
         deny from 213.144.5.182
+        # open-entity
+        deny from 134.245.254.244
     </Limit>    
 
 #### KRITISCHE DATEIEN BLOCKIEREN 
