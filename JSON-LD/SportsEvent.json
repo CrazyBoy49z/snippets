@@ -1,0 +1,32 @@
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "SportsEvent",
+"location": {
+    "@type": "Place",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dessau-Roßlau",
+            "addressRegion": "SN",
+            "addressCountry": "DE",
+            "postalCode": "06846",
+            "streetAddress": "Leopoldshafen 4"
+        },
+    "name": "Junkers Paddelgemeinschaft"
+},
+"image": {
+	"@type": "ImageObject",
+    "url": "https://junkers-paddelgemeinschaft.de/assets/images/770/170318-berg-und-tal-ruttke-019.jpg",
+    "author": "Thomas Ruttke",
+    "copyrightHolder": "Thomas Ruttke",
+    "copyrightYear": "2017",
+    "caption": "Berg- und Talrallye 2017",
+    "keywords": "paddling, kayak"
+},
+"name": "8. Berg- und Talrallye",
+"description": "Kanumarathon über 32 Kilometer auf der Elbe",    
+"startDate": "2018-03-17T09:00",
+"endDate": "2018-03-17T14:00",
+"isAccessibleForFree": true
+}
+</script>
