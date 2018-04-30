@@ -1,3 +1,122 @@
+/* ZENTRIEREN */
+
+/* v1 */
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* v2 */
+
+.element {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+/* v3 */
+
+.element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate (-50% -50%);
+}
+
+
+/* TELEFONNUMMERN */
+
+
+a[href^="tel"] {
+  white-space: nowrap;
+  pointer-events: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 30em) {
+  a[href^="tel"] {
+    pointer-events: auto;
+    text-decoration: underline;
+  }
+}
+
+/* CHECKBOX STYLEN */
+
+button {
+  appearance: none;
+}
+
+/* poor man's no-js checkbox toggler */
+input[type="checkbox"] ~ div {
+  visibility: hidden;
+}
+input[type="checkbox"]:checked ~ div {
+  visibility: visible;
+}
+
+/* ZEILENLÄNGE BEGRENZEN */
+
+.element {
+    max-width:75ch;
+}
+
+
+/* MODAL-WINDOW MIT FIXER HÖHE */
+
+/*https://codepen.io/ashconnolly/pen/wmrNJK*/
+
+.c-modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 100;
+   background: rgba(255, 255, 255, 0.6);
+   overflow-y: auto;
+
+   &__inner {
+      margin: 60px auto;
+      padding: 1.25em 1.5em;
+      background: white;
+      border: 1px solid #bcbec0;
+      width: 90%;
+      max-width: 560px;
+      max-height: 400px;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(1px);
+   }
+   
+   &__close {
+      position: sticky;
+      top: 0;
+      left: 100%;
+      min-width: 1px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: block;
+      // transform: translate3d(50%, -50%, 0);
+   }
+}
+
+/* DETAIL-PFEIL ÄNDERN */
+
+
+summary {
+  font-weight: bold;
+  list-style-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/right-arrow.svg);
+}
+
+summary::-webkit-details-marker {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/right-arrow.svg);
+  color: transparent;
+}
+
 /* LETZTES UNGERADES ELEMENT */
 
 
