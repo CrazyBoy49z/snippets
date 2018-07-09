@@ -1,10 +1,11 @@
 # Revo installieren
 
 - Server und Datenbank einrichten
+- TSL aktivieren
 - Upload
 - ht.access umbennen in root und /core
 - domain.de/setup aufrufen
-- "Sende X-Powered-By-Header" deaktivieren
+- "Sende X-Powered-By-Header" bei der Installation deaktivieren
 - ?? in /setup/index.php @ini_set('date.timezone', 'Europe/Berlin');
 - hochladen
 - Dateirechte auf 777 für /assets und /core
@@ -18,8 +19,8 @@
 
 ### Packages installieren
 	
-- AutoTemplate
-- filetranslit
+- AutoTemplate: Vorauswahl des Templates anhand des Nachbarn
+- filetranslit: transliterates names of files with non-latin characters uploaded via MODX file manager
 - getCache
 - getResourceField
 - If
@@ -45,7 +46,7 @@
 - friendly_urls = ja
 - use_alias_path = ja
 - manager_html5_cache = ja ??
-- resource_tree_node_name_fallback = longtitle
+- resource_tree_node_name_fallback = pagetitle
 - manager_week_start = 1
 - site_name = Seitenname
 - locale = de_DE
@@ -62,12 +63,14 @@
 - upload_files = pdf,jpg,jpeg,png,svg,svgz,gif
 - upload_flash = 
 - upload_images = jpg,jpeg,png,svg,gif
-- upload_media = 
+- upload_media =
+- send_poweredby_header = Nein
+- /core/locale.php installieren, aufrufen und locale in Systemeinstellungen korrekt eintragen
+
+ 
 - pthumb.ptcache_location = nach Belieben z.B. assets/images
 - phpthumb_cache_maxage = 100
 - pthumb.use_ptcache = Ja
-- send_poweredby_header = Nein
-- locale.php installieren und locale im Core korrekt eintragen
 
 
 - Inhalt -> Inhalstypen -> .html löschen

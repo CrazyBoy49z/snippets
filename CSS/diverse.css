@@ -166,6 +166,18 @@ summary::-webkit-details-marker {
 }
 
 
+/* ZEILE ABSCHNEIDEN */
+
+.element {
+    font-size: 1rem;
+    float: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+
 /* SYSTEM-FONTS*/
  
 font-family: -apple-system,
