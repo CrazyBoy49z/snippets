@@ -6,7 +6,7 @@
 * ⇧: Safe Mode.
 * ⌥: Startup Manager.
 * D: Apple Hardware Test
-* ⌥-D: Apple Hardware Test over the Internet.
+* ⌥-D:  Apple Hardware Test over internet 
 * ⌘-R: OS X Recovery. 
 * ⌘-⌥-R: OS X Recovery over the Internet.
 * ⌘-S: single-user mode.
